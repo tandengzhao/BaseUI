@@ -3,4 +3,20 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="shapeColorSolidDefault" >#0000FF</color>
+    <color name="shapeColorSolidPressed" >#F2F2F2</color>
+
+    <!--<color name="shapeRectangleFilletColorSolidTopLeftRightDefault" >#FFFF00</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidTopLeftRightPressed" >#F2F2F2</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidTopRightDefault" >#FF0000</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidTopRightPressed" >#F2F2F2</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidTopLeftDefault" >#00FFFF</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidTopLeftPressed" >#F2F2F2</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidBottomLeftRightDefault" >#0000FF</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidBottomLeftRightPressed" >#F2F2F2</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidBottomRightDefault" >#00FFFF</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidBottomRightPressed" >#F2F2F2</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidBottomLeftDefault" >#0000FF</color>-->
+    <!--<color name="shapeRectangleFilletColorSolidBottomLeftPressed" >#F2F2F2</color>-->
 </resources>

@@ -29,7 +29,25 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   }
 
   @Override
-  public abstract View getView(int position, View convertView, ViewGroup parent);
+  public View getView(int position, View convertView, ViewGroup parent) {
+    BaseViewHolder viewHolder;
+    int viewType = getItemViewType(position);
+    if(convertView == null || convertView.getTag() == null) {
+      viewHolder = onCreateViewHolder(viewType, parent);
+      convertView.setTag(viewHolder);
+    } else {
+      viewHolder = (BaseViewHolder) convertView.getTag();
+    }
+    onBindViewHolder(viewType, position, viewHolder);
+    return viewHolder.itemView;
+  }
+
+  public abstract BaseViewHolder onCreateViewHolder(int viewType, ViewGroup parent);
+  public abstract void onBindViewHolder(int viewType, int position, BaseViewHolder viewHolder);
+
+  public int getItemViewType(int position) {
+    return 0;
+  }
 
   public void setListData(List<T> listData) {
     this.listData.clear();
@@ -43,14 +61,27 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
     return listData;
   }
 
-  public class BaseViewHolder {
-    public View itemView;
-    public BaseViewHolder(View itemView) {
-      this.itemView = itemView;
-    }
+  public void addData(T t) {
+    listData.add(t);
+    notifyDataSetChanged();
+  }
 
-    public <T extends View> T getViewById(int resId) {
-      return (T) itemView.findViewById(resId);
-    }
+  public void addData(int index, T t) {
+    listData.add(index, t);
+    notifyDataSetChanged();
+  }
+
+  public void removeData(T t) {
+    listData.remove(t);
+    notifyDataSetChanged();
+  }
+
+  public void removeData(int index) {
+    listData.remove(index);
+    notifyDataSetChanged();
+  }
+
+  public boolean containsData(T t) {
+    return listData.contains(t);
   }
 }

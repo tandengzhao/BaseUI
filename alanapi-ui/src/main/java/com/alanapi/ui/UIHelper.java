@@ -42,7 +42,7 @@ public class UIHelper {
   public static Intent getIntent(Context context, Class<?> clazz) {
     Intent intent = new Intent(context, clazz);
     if(!Activity.class.isAssignableFrom(clazz)) {
-      throw new RuntimeException("class is not Activity");
+      throw new RuntimeException(clazz + " is not extends Activity");
     }
     return intent;
   }
@@ -78,5 +78,24 @@ public class UIHelper {
 
   public static void finishOtherAllActivity(final String clazzName) {
     ActivityManager.getInstance().finishOtherAllActivity(clazzName);
+  }
+
+  public static boolean isExistActivity(Class<?> cls) {
+    return ActivityManager.getInstance().isExistActivity(cls);
+  }
+
+  public static Activity getActivity(Class<?> cls) {
+    return ActivityManager.getInstance().getActivity(cls);
+  }
+
+  public static Activity getLastActivity() {
+    return ActivityManager.getInstance().getLastActivity();
+  }
+
+  public static Activity currentActivity() {
+    return ActivityManager.getInstance().currentActivity();
+  }
+  public static void killApp(Context context) {
+    ActivityManager.getInstance().killApp(context);
   }
 }

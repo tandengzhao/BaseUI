@@ -22,14 +22,18 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
         parent.removeView(mFragmentRootView);
       }
     }
-    onInitFragment();
+    onInitFragment(savedInstanceState);
     return mFragmentRootView;
   }
 
-  protected void onInitFragment() {
+  protected void onInitFragment(Bundle savedInstanceState) {
   }
 
-  public abstract View getFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+  public abstract int getFragmentLayoutResId();
+
+  public View getFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    return inflaterView(inflater, container, getFragmentLayoutResId());
+  }
 
   protected View inflaterView(LayoutInflater inflater, int layoutResId) {
     return this.inflaterView(inflater, null, layoutResId);

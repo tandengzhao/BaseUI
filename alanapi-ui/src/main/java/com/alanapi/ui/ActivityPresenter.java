@@ -10,19 +10,19 @@ import android.widget.Toast;
  * @version V1.0  16/7/1上午11:11
  * @author:OliverTan(www.tandunzhao.cn)
  */
-public class ActivityPresenter {
+public final class ActivityPresenter {
   private Activity activity;
   private Toast toast;
 
-  public ActivityPresenter(Activity activity) {
+  protected ActivityPresenter(Activity activity) {
     this.activity = activity;
   }
 
-  public void onCreate(Bundle savedInstanceState) {
+  protected void onCreate(Bundle savedInstanceState) {
     ActivityManager.getInstance().addActivity(activity);
   }
 
-  public boolean onKeyDown(int keyCode, KeyEvent event) {
+  protected boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
       if (toast != null) {
         toast.cancel();
@@ -35,7 +35,7 @@ public class ActivityPresenter {
     return false;
   }
 
-  public void finish() {
+  protected void finish() {
     if (toast != null) {
       toast.cancel();
       toast = null;
@@ -43,20 +43,20 @@ public class ActivityPresenter {
     ActivityManager.getInstance().removeActivity(activity);
   }
 
-  public void onBackPressed() {
+  protected void onBackPressed() {
     finishActivity();
   }
 
-  public void finishActivity() {
+  protected void finishActivity() {
     ActivityManager.getInstance().finishActivity(activity);
   }
 
-  public void onDestroy() {
+  protected void onDestroy() {
     finishActivity();
     activity = null;
   }
 
-  public void showToastMessage(String msg) {
+  protected void showToastMessage(String msg) {
     if(msg != null && msg.trim().length() > 0) {
       if (toast != null) {
         toast.setText(msg);

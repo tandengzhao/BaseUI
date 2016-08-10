@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 默认边框线条高度 -->
+    <dimen name="shapeBorderLineHeight">1px</dimen>
+    <!-- 默认边框圆角线条高度 -->
+    <dimen name="shapeBorderFilletLineHeight">@dimen/shapeBorderLineHeight</dimen>
+    <!-- 默认边框圆角大小 -->
+    <dimen name="shapeBorderFilletRadius">5dp</dimen>
+    <!-- 默认矩形圆角大小 -->
+    <dimen name="shapeRectangleFilletRadius">@dimen/shapeBorderFilletRadius</dimen>
+    <!-- 默认矩形顶部左圆角大小 -->
+    <dimen name="shapeRectangleFilletRadiusTopLeft">@dimen/shapeBorderFilletRadius</dimen>
+    <!-- 默认矩形顶部右圆角大小 -->
+    <dimen name="shapeRectangleFilletRadiusTopRight">@dimen/shapeBorderFilletRadius</dimen>
+    <!-- 默认矩形底部左圆角大小 -->
+    <dimen name="shapeRectangleFilletRadiusBottomLeft">@dimen/shapeBorderFilletRadius</dimen>
+    <!-- 默认矩形底部右圆角大小 -->
+    <dimen name="shapeRectangleFilletRadiusBottomRight">@dimen/shapeBorderFilletRadius</dimen>
+</resources>

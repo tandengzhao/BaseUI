@@ -10,7 +10,7 @@ import java.util.Stack;
  * @version V1.0  16/7/1上午10:42
  * @author:OliverTan(www.tandunzhao.cn)
  */
-public class ActivityManager {
+public final class ActivityManager {
   public static boolean debug = true;
   private volatile static Stack<Activity> activityStack = new Stack<Activity>();
   private volatile static ActivityManager instance;
@@ -23,7 +23,7 @@ public class ActivityManager {
    * 单一实例
    * @return ActivityManager
    */
-  public synchronized static ActivityManager getInstance() {
+  protected synchronized static ActivityManager getInstance() {
     if (instance == null) {
       synchronized (ActivityManager.class) {
         if(null == instance) {
@@ -38,7 +38,7 @@ public class ActivityManager {
    * 添加Activity到堆栈
    * @param activity Activity实例
    */
-  public synchronized void addActivity(Activity activity) {
+  protected synchronized void addActivity(Activity activity) {
     if(activity == null || activity.isFinishing()) {
       return;
     }
@@ -57,7 +57,7 @@ public class ActivityManager {
    * 移除堆栈中的Activity
    * @param activity Activity实例
    */
-  public synchronized void removeActivity(Activity activity) {
+  protected synchronized void removeActivity(Activity activity) {
     if(activity == null) {
       return;
     }
@@ -73,7 +73,7 @@ public class ActivityManager {
    * 获取当前Activity（堆栈中最后一个压入的, 不一定是最后一个显示的界面）
    * @return Activity
    */
-  public synchronized Activity currentActivity() {
+  protected synchronized Activity currentActivity() {
     if (activityStack != null && activityStack.size() > 0) {
       return activityStack.lastElement();
     }
@@ -84,7 +84,7 @@ public class ActivityManager {
    * 获取最后添加的 Activity
    * @return Activity
    */
-  public Activity getLastActivity() {
+  protected Activity getLastActivity() {
     return currentActivity();
   }
 
@@ -93,7 +93,7 @@ public class ActivityManager {
    * @param cls Activity Class
    * @return Activity
    */
-  public Activity getActivity(Class<?> cls) {
+  protected Activity getActivity(Class<?> cls) {
     for (Activity activity : activityStack) {
       if (activity.getClass().equals(cls)) {
         return activity;
@@ -107,7 +107,7 @@ public class ActivityManager {
    * @param cls Activity Class
    * @return Activity
    */
-  public boolean isExistActivity(Class<?> cls) {
+  protected boolean isExistActivity(Class<?> cls) {
     for (Activity activity : activityStack) {
       if (activity.getClass().equals(cls)) {
         return true;
@@ -119,7 +119,7 @@ public class ActivityManager {
   /**
    * 结束当前Activity（堆栈中最后一个压入的）
    */
-  public void finishActivity() {
+  protected void finishActivity() {
     Stack<Activity> tmpStack = activityStack;
     if (tmpStack != null && tmpStack.size() > 0) {
       Activity activity = tmpStack.lastElement();
@@ -131,7 +131,7 @@ public class ActivityManager {
    * 结束指定类名的Activity
    * @param cls Activity Class
    */
-  public void finishActivity(Class<?> cls) {
+  protected void finishActivity(Class<?> cls) {
     Stack<Activity> tmpStack = activityStack;
     Activity activityTmp = null;
     for (Activity activity : tmpStack) {
@@ -148,7 +148,7 @@ public class ActivityManager {
    * 结束指定类名的Activity
    * @param activityClassName Activity Class Name
    */
-  public void finishActivity(String activityClassName) {
+  protected void finishActivity(String activityClassName) {
     Activity activityTmp = null;
     for (Activity activity : activityStack) {
       if(activity.getClass().getName().equalsIgnoreCase(activityClassName)) {
@@ -164,7 +164,7 @@ public class ActivityManager {
    * 结束指定的Activity
    * @param activity Activity实例
    */
-  public void finishActivity(Activity activity) {
+  protected void finishActivity(Activity activity) {
     try {
       if (activity != null) {
         if (activityStack != null && activityStack.size() > 0 && activityStack.contains(activity)) {
@@ -186,7 +186,7 @@ public class ActivityManager {
   /**
    * 结束所有Activity
    */
-  public void finishAllActivity() {
+  protected void finishAllActivity() {
     Stack<Activity> activityStackTemp = new Stack<Activity>();
     activityStackTemp.addAll(activityStack);
     for (int i = 0, size = activityStackTemp.size(); i < size; i++) {
@@ -204,7 +204,7 @@ public class ActivityManager {
    * 结束除指定视图之外的所有视图
    * @param activity Activity实例
    */
-  public void finishOtherAllActivity(Activity activity) {
+  protected void finishOtherAllActivity(Activity activity) {
     Stack<Activity> activityStackTemp = new Stack<Activity>();
     activityStackTemp.addAll(activityStack);
     for (int i = 0, size = activityStackTemp.size(); i < size; i++) {
@@ -221,7 +221,7 @@ public class ActivityManager {
    * 销毁除指定视图之外的所有视图
    * @param cls Activity Class
    */
-  public void finishOtherAllActivity(Class<?> cls) {
+  protected void finishOtherAllActivity(Class<?> cls) {
     Stack<Activity> activityStackTemp = new Stack<Activity>();
     activityStackTemp.addAll(activityStack);
     Activity activityTmp = null;
@@ -240,7 +240,7 @@ public class ActivityManager {
    * 销毁除指定视图之外的所有视图
    * @param activityClassName Activity Class Name
    */
-  public void finishOtherAllActivity(String activityClassName) {
+  protected void finishOtherAllActivity(String activityClassName) {
     Stack<Activity> activityStackTemp = new Stack<Activity>();
     activityStackTemp.addAll(activityStack);
     Activity activityTmp = null;
@@ -259,7 +259,7 @@ public class ActivityManager {
    * 退出杀死应用程序
    * @param context Context实例
    */
-  public void killApp(Context context) {
+  protected void killApp(Context context) {
     try {
       finishAllActivity();
       android.app.ActivityManager activityMgr = (android.app.ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);

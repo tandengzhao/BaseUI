@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/shapeBorderFilletColorStroke"/>
+
+                    <padding
+                        android:bottom="@dimen/shapeBorderFilletLineHeight"
+                        android:left="@dimen/shapeBorderFilletLineHeight"
+                        android:right="@dimen/shapeBorderFilletLineHeight"
+                        android:top="@dimen/shapeBorderFilletLineHeight"/>
+
+                    <corners android:bottomLeftRadius="@dimen/shapeRectangleFilletRadiusBottomLeft"
+                             android:bottomRightRadius="@dimen/shapeRectangleFilletRadiusBottomRight"
+                             android:topLeftRadius="0dp"
+                             android:topRightRadius="0dp"/>
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/shapeRectangleFilletColorSolidBottomLeftRightLineTopPressed"/>
+
+                    <corners android:bottomLeftRadius="@dimen/shapeRectangleFilletRadiusBottomLeft"
+                             android:bottomRightRadius="@dimen/shapeRectangleFilletRadiusBottomRight"
+                             android:topLeftRadius="0dp"
+                             android:topRightRadius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/shapeBorderFilletColorStroke"/>
+
+                    <padding
+                        android:bottom="@dimen/shapeBorderFilletLineHeight"
+                        android:left="@dimen/shapeBorderFilletLineHeight"
+                        android:right="@dimen/shapeBorderFilletLineHeight"
+                        android:top="@dimen/shapeBorderFilletLineHeight"/>
+
+                    <corners android:bottomLeftRadius="@dimen/shapeRectangleFilletRadiusBottomLeft"
+                             android:bottomRightRadius="@dimen/shapeRectangleFilletRadiusBottomRight"
+                             android:topLeftRadius="0dp"
+                             android:topRightRadius="0dp"/>
+                </shape>
+            </item>
+
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/shapeRectangleFilletColorSolidBottomLeftRightLineTopDefault"/>
+                    <corners android:bottomLeftRadius="@dimen/shapeRectangleFilletRadiusBottomLeft"
+                             android:bottomRightRadius="@dimen/shapeRectangleFilletRadiusBottomRight"
+                             android:topLeftRadius="0dp"
+                             android:topRightRadius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
