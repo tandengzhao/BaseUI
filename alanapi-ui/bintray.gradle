@@ -114,13 +114,13 @@ bintray {
                 passphrase = project.getProperty("GPG_PASS")
             }
 
-//            mavenCentralSync {
-//               // sync = project.hasProperty('SONATYPE_USER') && project.hasProperty('SONATYPE_KEY')
-//                sync = true
-//                user = project.hasProperty('SONATYPE_USER') ? project.property('SONATYPE_USER') : ""
-//                password = project.hasProperty('SONATYPE_PASS') ? project.property('SONATYPE_PASS') : ""
-//                close = '1'
-//            }
+            mavenCentralSync {
+               // sync = project.hasProperty('SONATYPE_USER') && project.hasProperty('SONATYPE_KEY')
+                sync = true
+                user = project.hasProperty('SONATYPE_USER') ? project.property('SONATYPE_USER') : ""
+                password = project.hasProperty('SONATYPE_PASS') ? project.property('SONATYPE_PASS') : ""
+                close = '1'
+            }
         }
     }
 }
