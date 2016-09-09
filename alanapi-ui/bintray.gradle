@@ -12,12 +12,6 @@ task sourcesJar(type: Jar) {
     classifier = 'sources'
 }
 
-//task javadoc(type: Javadoc) {
-//    source = android.sourceSets.main.java.srcDirs
-//    classpath += configurations.compile
-//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//    classpath += project.files(configurations.compile.files, android.getBootClasspath().join(File.pathSeparator))
-//}
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
@@ -91,7 +85,7 @@ bintray {
 
     dryRun = false //[Default: false] Whether to run this as dry-run, without deploying
     publish = true //是否发布//[Default: false] Whether version should be auto published after an upload
-//    override = true //[Default: false] Whether to override version artifacts already published
+    override = true //[Default: false] Whether to override version artifacts already published
 
     pkg {
         repo = 'maven'
