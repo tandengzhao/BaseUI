@@ -3,7 +3,6 @@ package com.alanapi.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-
 import java.util.Stack;
 
 /**
@@ -11,6 +10,7 @@ import java.util.Stack;
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public final class ActivityManager {
+  public static boolean debug = true;
   private volatile static Stack<Activity> activityStack = new Stack<Activity>();
   private volatile static ActivityManager instance;
   private final String TAG = "ActivityManager";
@@ -47,7 +47,7 @@ public final class ActivityManager {
     finishActivity(getActivity(activity.getClass()));
 
     activityStack.add(activity);
-    if (BuildConfig.DEBUG) {
+    if (debug) {
       Log.d(TAG, "onCreate Activity : " + activity.getClass().getName());
     }
   }
@@ -61,7 +61,7 @@ public final class ActivityManager {
       return;
     }
     if(activityStack.contains(activity)) {
-      if (BuildConfig.DEBUG) {
+      if (debug) {
         Log.d(TAG, "remove Activity : " + activity.getClass().getName());
       }
       activityStack.remove(activity);
@@ -170,7 +170,7 @@ public final class ActivityManager {
           activityStack.remove(activity);
         }
         if(!activity.isFinishing()) {
-          if (BuildConfig.DEBUG) {
+          if (debug) {
             Log.d(TAG, "finish Activity : " + activity.getClass().getName());
           }
           activity.finish();
