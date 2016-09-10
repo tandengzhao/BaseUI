@@ -14,9 +14,6 @@ public class UIHelper {
   public static final String _KEY_OBJECT_DATA = "_key_intent_put_value_object_data";
   public static final String _KEY_ACTIVITY_TITLE = "_key_intent_put_value_activity_title";
 
-  private UIHelper() {
-  }
-
   public static void showActivity(Context context, Class<?> clazz) {
     showActivity(context, clazz, null);
   }
@@ -95,6 +92,7 @@ public class UIHelper {
   public static Activity currentActivity() {
     return ActivityManager.getInstance().currentActivity();
   }
+
   public static void killApp(Context context) {
     ActivityManager.getInstance().killApp(context);
   }
