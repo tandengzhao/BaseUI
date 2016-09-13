@@ -98,6 +98,21 @@ public abstract class HeadbarActivity extends Activity {
     rootLayout.addView(view, params);
   }
 
+  @Override
+  public void setTitle(CharSequence title) {
+    setToolbarTitle(title);
+  }
+
+  @Override
+  public void setTitle(int titleId) {
+    setToolbarTitle(titleId);
+  }
+
+  @Override
+  public void setTitleColor(int textColor) {
+    tvToolbarTitle.setTextColor(textColor);
+  }
+
   public void setToolbarTitle(@NonNull CharSequence title) {
     tvToolbarTitle.setText(title);
   }
@@ -230,7 +245,6 @@ public abstract class HeadbarActivity extends Activity {
 
   /**
    * 点击左按钮
-   *
    * @param view
    */
   protected void onClickToolbarLeftBack(View view) {
@@ -239,7 +253,6 @@ public abstract class HeadbarActivity extends Activity {
 
   /**
    * 点击左按钮(第二个)
-   *
    * @param view
    */
   protected void onClickToolbarLeftOption(View view) {
@@ -247,7 +260,6 @@ public abstract class HeadbarActivity extends Activity {
 
   /**
    * 点击右按钮(第一个)
-   *
    * @param view
    */
   protected void onClickToolbarRightOption(View view) {
@@ -255,7 +267,6 @@ public abstract class HeadbarActivity extends Activity {
 
   /**
    * 点击右按钮(第二个)
-   *
    * @param view
    */
   protected void onClickToolbarRightOption1(View view) {
@@ -263,7 +274,6 @@ public abstract class HeadbarActivity extends Activity {
 
   /**
    * 点击右按钮(第三个)
-   *
    * @param view
    */
   protected void onClickToolbarRightOption2(View view) {
@@ -271,7 +281,6 @@ public abstract class HeadbarActivity extends Activity {
 
   /**
    * 点击标题
-   *
    * @param view
    */
   protected void onClickToolbarTitle(View view) {
