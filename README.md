@@ -10,3 +10,4 @@
 #依赖库
 1. support-v4:24.2.0
 2. appcompat-v7:24.2.0
+3. design:24.2.0
