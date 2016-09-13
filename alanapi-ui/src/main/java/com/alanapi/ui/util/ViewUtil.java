@@ -1,9 +1,12 @@
 package com.alanapi.ui.util;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 import com.alanapi.ui.Activity;
 
@@ -59,5 +62,53 @@ public class ViewUtil {
    */
   public static InputMethodManager getInputMethodManager(View view) {
     return (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+  }
+
+  /**
+   * 设置TextView Left Drawable
+   * @param textView
+   * @param drawable
+   */
+  public static void setTextViewCompoundDrawableLeft(@NonNull TextView textView, Drawable drawable) {
+    textView.setCompoundDrawables(getCompoundDrawable(drawable), null, null, null);
+  }
+
+  /**
+   * 设置TextView Right Drawable
+   * @param textView
+   * @param drawable
+   */
+  public static void setTextViewCompoundDrawableRight(@NonNull TextView textView, Drawable drawable) {
+    textView.setCompoundDrawables(null, null, getCompoundDrawable(drawable), null);
+  }
+
+  /**
+   * 设置TextView Top Drawable
+   * @param textView
+   * @param drawable
+   */
+  public static void setTextViewCompoundDrawableTop(@NonNull TextView textView, Drawable drawable) {
+    textView.setCompoundDrawables(null, getCompoundDrawable(drawable), null, null);
+  }
+
+  /**
+   * 设置TextView Bottom Drawable
+   * @param textView
+   * @param drawable
+   */
+  public static void setTextViewCompoundDrawableBottom(@NonNull TextView textView, Drawable drawable) {
+    textView.setCompoundDrawables(null, null, null, getCompoundDrawable(drawable));
+  }
+
+  /**
+   * 获取Drawable
+   * @param drawable
+   * @return Drawable
+   */
+  public static Drawable getCompoundDrawable(Drawable drawable) {
+    if(drawable != null) {
+      drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+    }
+    return drawable;
   }
 }

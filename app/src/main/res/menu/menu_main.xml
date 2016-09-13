@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.juyue.health.doctor.MainActivity">
+    <item
+        android:id="@+id/main_toolbar_shuffle"
+        android:title="随机看看"
+        android:icon="@drawable/ic_face_black_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/main_toolbar_shuffle1"
+        android:title="礼物"
+        android:icon="@drawable/ic_card_giftcard_black_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/main_toolbar_search"
+        android:title="搜索"
+        android:icon="@drawable/ic_youtube_searched_for_black_24dp"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/main_toolbar_notify"
+        android:title="通知"
+        android:icon="@drawable/ic_insert_comment_black_24dp"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+</menu>
