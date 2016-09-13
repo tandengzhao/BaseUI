@@ -98,6 +98,21 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     rootLayout.addView(view, params);
   }
 
+  @Override
+  public void setTitle(CharSequence title) {
+    setToolbarTitle(title);
+  }
+
+  @Override
+  public void setTitle(int titleId) {
+    setToolbarTitle(titleId);
+  }
+
+  @Override
+  public void setTitleColor(int textColor) {
+    tvToolbarTitle.setTextColor(textColor);
+  }
+
   public void setToolbarTitle(@NonNull CharSequence title) {
     tvToolbarTitle.setText(title);
   }
