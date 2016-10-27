@@ -32,5 +32,10 @@
             android:layout_height="wrap_content"
             android:onClick="onMainHeadbarAppCompat"
             android:text="MainHeadbarAppCompatActivity" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLogin"
+            android:text="登录" />
     </LinearLayout>
 </ScrollView>

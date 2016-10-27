@@ -26,7 +26,32 @@ public class Activity extends android.app.Activity {
 
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
-    return activityPresenter.onKeyDown(keyCode, event);
+    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+      if(onKeyDownBack()) {
+        return true;
+      }
+    } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+      if(onKeyDownMenu()) {
+        return true;
+      }
+    } else if (keyCode == KeyEvent.KEYCODE_HOME) {
+      if(onKeyDownHome()) {
+        return true;
+      }
+    }
+    return super.onKeyDown(keyCode, event);
+  }
+
+  public boolean onKeyDownBack() {
+    return activityPresenter.onKeyDownBack();
+  }
+
+  public boolean onKeyDownMenu() {
+    return false;
+  }
+
+  public boolean onKeyDownHome() {
+    return false;
   }
 
   @Override

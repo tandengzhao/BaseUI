@@ -151,6 +151,14 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
   /**
    * 显示左侧返回按钮
    */
+  public void showToolbarLeftBack(String res) {
+    setToolbarLeftBack(res);
+    tvToolbarLeftBack.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示左侧返回按钮
+   */
   public void hideToolbarLeftBack() {
     tvToolbarLeftBack.setVisibility(View.GONE);
   }
@@ -159,6 +167,14 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
    * 显示左侧更多按钮
    */
   public void showToolbarLeftOption() {
+    tvToolbarLeftOption.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示左侧更多按钮
+   */
+  public void showToolbarLeftOption(String res) {
+    setToolbarLeftOption(res);
     tvToolbarLeftOption.setVisibility(View.VISIBLE);
   }
 

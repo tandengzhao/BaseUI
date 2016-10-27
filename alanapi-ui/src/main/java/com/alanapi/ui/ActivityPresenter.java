@@ -24,15 +24,18 @@ public final class ActivityPresenter {
 
   protected boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-      if (toast != null) {
-        toast.cancel();
-        toast = null;
-      }
-      ActivityManager.getInstance().finishActivity(activity);
-      //不需要继续执行父类继续处理事件
-      return true;
+      return onKeyDownBack();
     }
     return false;
+  }
+
+  protected boolean onKeyDownBack() {
+    if (toast != null) {
+      toast.cancel();
+      toast = null;
+    }
+    ActivityManager.getInstance().finishActivity(activity);
+    return true;
   }
 
   protected void finish() {

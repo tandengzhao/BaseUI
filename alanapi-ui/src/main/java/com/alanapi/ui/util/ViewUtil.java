@@ -1,7 +1,9 @@
 package com.alanapi.ui.util;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -74,12 +76,30 @@ public class ViewUtil {
   }
 
   /**
+   * 设置TextView Left Drawable
+   * @param textView
+   * @param drawableRes
+   */
+  public static void setTextViewCompoundDrawableLeft(@NonNull TextView textView, @DrawableRes int drawableRes) {
+    setTextViewCompoundDrawableLeft(textView, textView.getResources().getDrawable(drawableRes));
+  }
+
+  /**
    * 设置TextView Right Drawable
    * @param textView
    * @param drawable
    */
   public static void setTextViewCompoundDrawableRight(@NonNull TextView textView, Drawable drawable) {
     textView.setCompoundDrawables(null, null, getCompoundDrawable(drawable), null);
+  }
+
+  /**
+   * 设置TextView Right Drawable
+   * @param textView
+   * @param drawableRes
+   */
+  public static void setTextViewCompoundDrawableRight(@NonNull TextView textView, @DrawableRes int drawableRes) {
+    setTextViewCompoundDrawableRight(textView, textView.getResources().getDrawable(drawableRes));
   }
 
   /**
@@ -92,12 +112,30 @@ public class ViewUtil {
   }
 
   /**
+   * 设置TextView Top Drawable
+   * @param textView
+   * @param drawableRes
+   */
+  public static void setTextViewCompoundDrawableTop(@NonNull TextView textView, @DrawableRes int drawableRes) {
+    setTextViewCompoundDrawableTop(textView, textView.getResources().getDrawable(drawableRes));
+  }
+
+  /**
    * 设置TextView Bottom Drawable
    * @param textView
    * @param drawable
    */
   public static void setTextViewCompoundDrawableBottom(@NonNull TextView textView, Drawable drawable) {
     textView.setCompoundDrawables(null, null, null, getCompoundDrawable(drawable));
+  }
+
+  /**
+   * 设置TextView Bottom Drawable
+   * @param textView
+   * @param drawableRes
+   */
+  public static void setTextViewCompoundDrawableBottom(@NonNull TextView textView, @DrawableRes int drawableRes) {
+    setTextViewCompoundDrawableBottom(textView, textView.getResources().getDrawable(drawableRes));
   }
 
   /**
@@ -110,5 +148,25 @@ public class ViewUtil {
       drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
     }
     return drawable;
+  }
+
+  /**
+   * 获取Drawable
+   * @param context
+   * @param drawableRes
+   * @return
+   */
+  public static Drawable getDrawable(Context context, @DrawableRes int drawableRes) {
+    return getDrawable(context.getResources(), drawableRes);
+  }
+
+  /**
+   * 获取Drawable
+   * @param resources
+   * @param drawableRes
+   * @return
+   */
+  public static Drawable getDrawable(Resources resources, @DrawableRes int drawableRes) {
+    return resources.getDrawable(drawableRes);
   }
 }

@@ -4,7 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @version V1.0  16/7/1下午12:35
@@ -12,6 +14,8 @@ import java.util.List;
  */
 public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   protected List<T> listData = new ArrayList<>();
+
+  private Map<Integer, BaseViewHolder> cacheMap = new HashMap<>();
 
   @Override
   public int getCount() {
@@ -32,9 +36,11 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   public View getView(int position, View convertView, ViewGroup parent) {
     BaseViewHolder viewHolder;
     int viewType = getItemViewType(position);
-    if(convertView == null || convertView.getTag() == null) {
+
+    if(convertView == null || convertView.getTag() == null || cacheMap.get(viewType) == null) {
       viewHolder = onCreateViewHolder(viewType, parent);
       convertView.setTag(viewHolder);
+      cacheMap.put(viewType, viewHolder);
     } else {
       viewHolder = (BaseViewHolder) convertView.getTag();
     }

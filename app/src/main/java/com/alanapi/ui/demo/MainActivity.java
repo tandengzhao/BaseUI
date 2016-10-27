@@ -23,4 +23,7 @@ public class MainActivity extends AppCompatActivity {
   public void onMainHeadbarAppCompat(View v) {
     UIHelper.showActivity(this, MainHeadbarAppCompatActivity.class);
   }
+  public void onLogin(View v) {
+    UIHelper.showActivity(this, LoginActivity.class);
+  }
 }

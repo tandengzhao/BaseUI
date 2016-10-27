@@ -53,6 +53,10 @@ public class UIHelper {
     context.startActivity(intent);
   }
 
+  public static void showActivity(Context context, Intent intent) {
+    context.startActivity(intent);
+  }
+
   public static void startActivityForResult(Activity activity, Intent intent, int requestCode){
     activity.startActivityForResult(intent, requestCode);
   }

@@ -182,6 +182,15 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
 
   /**
    * 显示左侧返回按钮
+   * @param res
+   */
+  public void showToolbarLeftBack(String res) {
+    setToolbarLeftBack(res);
+    tvToolbarLeftBack.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示左侧返回按钮
    */
   public void hideToolbarLeftBack() {
     tvToolbarLeftBack.setVisibility(View.GONE);
@@ -191,6 +200,14 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
    * 显示左侧更多按钮
    */
   public void showToolbarLeftOption() {
+    tvToolbarLeftOption.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示左侧更多按钮
+   */
+  public void showToolbarLeftOption(String res) {
+    setToolbarLeftOption(res);
     tvToolbarLeftOption.setVisibility(View.VISIBLE);
   }
 
@@ -211,6 +228,14 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   /**
    * 显示右侧按钮
    */
+  public void showToolbarRightOption(String res) {
+    setToolbarRightOption(res);
+    tvToolbarRightOption.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示右侧按钮
+   */
   public void hideToolbarRightOption() {
     tvToolbarRightOption.setVisibility(View.GONE);
   }
@@ -225,6 +250,14 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   /**
    * 显示右侧按钮1
    */
+  public void showToolbarRightOption1(String res) {
+    setToolbarRightOption1(res);
+    tvToolbarRightOption1.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示右侧按钮1
+   */
   public void hideToolbarRightOption1() {
     tvToolbarRightOption1.setVisibility(View.GONE);
   }
@@ -233,6 +266,14 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
    * 显示右侧按钮2
    */
   public void showToolbarRightOption2() {
+    tvToolbarRightOption2.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示右侧按钮2
+   */
+  public void showToolbarRightOption2(String res) {
+    setToolbarRightOption2(res);
     tvToolbarRightOption2.setVisibility(View.VISIBLE);
   }
 

@@ -18,7 +18,7 @@ import com.alanapi.ui.util.ViewUtil;
  * @version V1.0  16/9/13上午10:50
  * @author:OliverTan(www.tandunzhao.cn)
  */
-public abstract class HeadbarActivity extends Activity {
+public abstract class HeadBarActivity extends Activity {
   protected LinearLayout rootLayout;
   protected TextView tvToolbarTitle;
   protected TextView tvToolbarLeftBack;
@@ -182,6 +182,15 @@ public abstract class HeadbarActivity extends Activity {
 
   /**
    * 显示左侧返回按钮
+   * @param res
+   */
+  public void showToolbarLeftBack(String res) {
+    setToolbarLeftBack(res);
+    tvToolbarLeftBack.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示左侧返回按钮
    */
   public void hideToolbarLeftBack() {
     tvToolbarLeftBack.setVisibility(View.GONE);
@@ -191,6 +200,14 @@ public abstract class HeadbarActivity extends Activity {
    * 显示左侧更多按钮
    */
   public void showToolbarLeftOption() {
+    tvToolbarLeftOption.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示左侧更多按钮
+   */
+  public void showToolbarLeftOption(String res) {
+    setToolbarLeftOption(res);
     tvToolbarLeftOption.setVisibility(View.VISIBLE);
   }
 
@@ -211,6 +228,14 @@ public abstract class HeadbarActivity extends Activity {
   /**
    * 显示右侧按钮
    */
+  public void showToolbarRightOption(String res) {
+    setToolbarRightOption(res);
+    tvToolbarRightOption.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示右侧按钮
+   */
   public void hideToolbarRightOption() {
     tvToolbarRightOption.setVisibility(View.GONE);
   }
@@ -225,6 +250,14 @@ public abstract class HeadbarActivity extends Activity {
   /**
    * 显示右侧按钮1
    */
+  public void showToolbarRightOption1(String res) {
+    setToolbarRightOption1(res);
+    tvToolbarRightOption1.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示右侧按钮1
+   */
   public void hideToolbarRightOption1() {
     tvToolbarRightOption1.setVisibility(View.GONE);
   }
@@ -233,6 +266,14 @@ public abstract class HeadbarActivity extends Activity {
    * 显示右侧按钮2
    */
   public void showToolbarRightOption2() {
+    tvToolbarRightOption2.setVisibility(View.VISIBLE);
+  }
+
+  /**
+   * 显示右侧按钮2
+   */
+  public void showToolbarRightOption2(String res) {
+    setToolbarRightOption2(res);
     tvToolbarRightOption2.setVisibility(View.VISIBLE);
   }
 
