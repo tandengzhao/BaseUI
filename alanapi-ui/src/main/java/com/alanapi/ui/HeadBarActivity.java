@@ -18,7 +18,7 @@ import com.alanapi.ui.util.ViewUtil;
  * @version V1.0  16/9/13上午10:50
  * @author:OliverTan(www.tandunzhao.cn)
  */
-public abstract class HeadBarActivity extends Activity {
+public abstract class HeadbarActivity extends Activity {
   protected LinearLayout rootLayout;
   protected TextView tvToolbarTitle;
   protected TextView tvToolbarLeftBack;
