@@ -39,6 +39,7 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
     if(convertView == null || convertView.getTag() == null || cacheMap.get(viewType) == null) {
       viewHolder = onCreateViewHolder(viewType, parent);
+      convertView = viewHolder.itemView;
       convertView.setTag(viewHolder);
       cacheMap.put(viewType, viewHolder);
     } else {
