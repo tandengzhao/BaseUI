@@ -1,6 +1,7 @@
 package com.alanapi.ui;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
   protected View inflaterView(LayoutInflater inflater, ViewGroup container, int layoutResId) {
     return inflater.inflate(layoutResId, container, false);
   }
-  protected <T extends View> T getViewById(int id) {
+  protected <T extends View> T getViewById(@IdRes int id) {
     return (T) mFragmentRootView.findViewById(id);
   }
 }

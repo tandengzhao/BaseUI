@@ -1,6 +1,7 @@
 package com.alanapi.ui;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -79,7 +80,7 @@ public class FragmentActivity extends android.support.v4.app.FragmentActivity {
     activityPresenter.finishActivity();
   }
 
-  protected <T extends View> T getViewById(int id) {
+  protected <T extends View> T getViewById(@IdRes int id) {
     return (T) this.findViewById(id);
   }
 }

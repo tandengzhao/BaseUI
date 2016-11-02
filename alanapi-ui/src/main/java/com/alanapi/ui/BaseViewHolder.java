@@ -1,5 +1,6 @@
 package com.alanapi.ui;
 
+import android.support.annotation.IdRes;
 import android.view.View;
 
 /**
@@ -12,7 +13,7 @@ public class BaseViewHolder {
     this.itemView = itemView;
   }
 
-  public <T extends View> T getViewById(int resId) {
+  public <T extends View> T getViewById(@IdRes int resId) {
     return (T) itemView.findViewById(resId);
   }
 }

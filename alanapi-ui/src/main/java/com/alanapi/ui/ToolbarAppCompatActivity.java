@@ -20,7 +20,7 @@ import com.alanapi.ui.util.ViewUtil;
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
-  protected LinearLayout rootLayout;
+  protected LinearLayout rootActivityLayout;
   protected Toolbar toolbar;
   protected TextView tvToolbarTitle;
   protected TextView tvToolbarLeftBack;
@@ -33,7 +33,7 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
-    rootLayout = getViewById(R.id.ActivityToolbarAppCompat_llRootLayout);
+    rootActivityLayout = getViewById(R.id.ActivityToolbarAppCompat_llRootLayout);
     toolbar = getViewById(R.id.ViewToolbar_toolBar);
     tvToolbarTitle = getViewById(R.id.ViewToolbar_tvToolbarTitle);
     tvToolbarLeftBack = getViewById(R.id.ViewToolbar_tvToolbarLeftBack);
@@ -75,9 +75,33 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
     initData();
   }
 
+  public void setToolBarBackgroundResource(int resId) {
+    toolbar.setBackgroundResource(resId);
+  }
+
+  public void setToolBarBackgroundColor(int color) {
+    toolbar.setBackgroundColor(color);
+  }
+
+  public void setToolBarBackgroundDrawable(Drawable drawable) {
+    toolbar.setBackgroundDrawable(drawable);
+  }
+
+  public void setActivityBackgroundResource(int resId) {
+    rootActivityLayout.setBackgroundResource(resId);
+  }
+
+  public void setActivityBackgroundColor(int color) {
+    rootActivityLayout.setBackgroundColor(color);
+  }
+
+  public void setActivityBackgroundDrawable(Drawable drawable) {
+    rootActivityLayout.setBackgroundDrawable(drawable);
+  }
+
   @Override
   public void setContentView(@LayoutRes int layoutResID) {
-    View.inflate(this, layoutResID, rootLayout);
+    View.inflate(this, layoutResID, rootActivityLayout);
   }
 
   @Override
@@ -87,7 +111,7 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
 
   @Override
   public void setContentView(View view, ViewGroup.LayoutParams params) {
-    rootLayout.addView(view, params);
+    rootActivityLayout.addView(view, params);
   }
 
   @Override

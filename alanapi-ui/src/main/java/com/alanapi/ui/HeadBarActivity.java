@@ -19,7 +19,8 @@ import com.alanapi.ui.util.ViewUtil;
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public abstract class HeadbarActivity extends Activity {
-  protected LinearLayout rootLayout;
+  protected LinearLayout rootActivityLayout;
+  protected LinearLayout rootHeadBarLayout;
   protected TextView tvToolbarTitle;
   protected TextView tvToolbarLeftBack;
   protected TextView tvToolbarLeftOption;
@@ -34,7 +35,8 @@ public abstract class HeadbarActivity extends Activity {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
-    rootLayout = getViewById(R.id.ActivityHeadbar_llRootLayout);
+    rootActivityLayout = getViewById(R.id.ActivityHeadbar_llRootLayout);
+    rootHeadBarLayout = getViewById(R.id.ViewHeadbar_rootLayout);
     tvToolbarTitle = getViewById(R.id.ViewHeadbar_tvHeadbarTitle);
     tvToolbarLeftBack = getViewById(R.id.ViewHeadbar_tvHeadbarLeftBack);
     tvToolbarLeftOption = getViewById(R.id.ViewHeadbar_tvHeadbarLeftOption);
@@ -83,9 +85,33 @@ public abstract class HeadbarActivity extends Activity {
     initData();
   }
 
+  public void setHeadBarBackgroundResource(int resId) {
+    rootHeadBarLayout.setBackgroundResource(resId);
+  }
+
+  public void setHeadBarBackgroundColor(int color) {
+    rootHeadBarLayout.setBackgroundColor(color);
+  }
+
+  public void setHeadBarBackgroundDrawable(Drawable drawable) {
+    rootHeadBarLayout.setBackgroundDrawable(drawable);
+  }
+
+  public void setActivityBackgroundResource(int resId) {
+    rootActivityLayout.setBackgroundResource(resId);
+  }
+
+  public void setActivityBackgroundColor(int color) {
+    rootActivityLayout.setBackgroundColor(color);
+  }
+
+  public void setActivityBackgroundDrawable(Drawable drawable) {
+    rootActivityLayout.setBackgroundDrawable(drawable);
+  }
+
   @Override
   public void setContentView(@LayoutRes int layoutResID) {
-    View.inflate(this, layoutResID, rootLayout);
+    View.inflate(this, layoutResID, rootActivityLayout);
   }
 
   @Override
@@ -95,7 +121,7 @@ public abstract class HeadbarActivity extends Activity {
 
   @Override
   public void setContentView(View view, ViewGroup.LayoutParams params) {
-    rootLayout.addView(view, params);
+    rootActivityLayout.addView(view, params);
   }
 
   @Override
