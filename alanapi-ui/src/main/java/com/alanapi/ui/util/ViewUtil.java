@@ -17,6 +17,44 @@ import com.alanapi.ui.Activity;
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public class ViewUtil {
+
+  /**
+   * GONE View
+   * @param views
+   */
+  public static void goneView(View... views) {
+    if (views != null && views.length > 0) {
+      for (View view : views) {
+        if (view != null) {
+          view.setVisibility(View.GONE);
+        }
+      }
+    }
+  }
+
+  /**
+   * VISIBLE View
+   * @param views
+   */
+  public static void showView(View... views) {
+    if (views != null && views.length > 0) {
+      for (View view : views) {
+        if (view != null) {
+          view.setVisibility(View.VISIBLE);
+        }
+      }
+    }
+  }
+
+  /**
+   * VISIBLE true
+   * @param view
+   * @return
+   */
+  public static boolean isVisibleView(View view) {
+    return view.getVisibility() == View.VISIBLE;
+  }
+
   /**
    * 根据id查找View
    * @param view

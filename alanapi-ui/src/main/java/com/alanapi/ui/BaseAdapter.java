@@ -14,8 +14,10 @@ import java.util.Map;
  */
 public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   protected List<T> listData = new ArrayList<>();
-
   private Map<Integer, BaseViewHolder> cacheMap = new HashMap<>();
+
+  private List<String> listSelectItemPosition = new ArrayList<>();
+  private boolean isSingleSelectItem = false;//单选
 
   @Override
   public int getCount() {
@@ -90,5 +92,99 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
   public boolean containsData(T t) {
     return listData.contains(t);
+  }
+
+  /**
+   * 当前Item是否选中
+   * @param position
+   * @return
+   */
+  public boolean isSelectItem(int position) {
+    String str = String.valueOf(position);
+    return listSelectItemPosition.contains(str);
+  }
+
+  /**
+   * 添加选中的Item
+   * @param position
+   */
+  public void addSelectItem(int position) {
+    String str = String.valueOf(position);
+    if(isSingleSelectItem) {
+      listSelectItemPosition.clear();
+    }
+    if(!listSelectItemPosition.contains(str)) {
+      listSelectItemPosition.add(str);
+    }
+  }
+
+  /**
+   * 删除选中的Item
+   * @param position
+   */
+  public void removeSelectItem(int position) {
+    String str = String.valueOf(position);
+    if(listSelectItemPosition.contains(str)) {
+      listSelectItemPosition.remove(str);
+    }
+  }
+
+  /**
+   * 获取选中的Item
+   * @return
+   */
+  public List<T> getSelectItem() {
+    List<T> listSelectData = new ArrayList<>();
+    for (String positionStr: listSelectItemPosition) {
+      if(positionStr.matches("\\d+")) {
+        int position = Integer.parseInt(positionStr);
+        listSelectData.add(getItem(position));
+      }
+    }
+    return listSelectData;
+  }
+
+  /**
+   * 获取单选选中Item
+   * @return
+   */
+  public T getSingleSelectItem() {
+    int position = getSingleSelectItemPosition();
+    if(position > -1 && position < getCount()) {
+      return getItem(position);
+    }
+    return null;
+  }
+
+  /**
+   * 获取单选item position
+   * @return
+   */
+  public int getSingleSelectItemPosition() {
+    if(listSelectItemPosition.size() > 0) {
+      String positionStr = listSelectItemPosition.get(0);
+      if(positionStr.matches("\\d+")) {
+        int position = Integer.parseInt(positionStr);
+        return position;
+      }
+    }
+    return -1;
+  }
+
+  public int[] getSelectItemPosition() {
+    if(listSelectItemPosition.size() > 0) {
+      for (String positionStr: listSelectItemPosition) {
+
+      }
+    }
+    return null;
+  }
+
+  /**
+   * 设置是否单选 true:单选
+   * @param singleSelectItem
+   */
+  public void setSingleSelectItem(boolean singleSelectItem) {
+    this.isSingleSelectItem = singleSelectItem;
   }
 }

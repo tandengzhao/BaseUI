@@ -31,7 +31,8 @@
         android:layout_marginLeft="5dp"
         android:drawableLeft="@drawable/ic_arrow_back_white"
         android:gravity="center_vertical"
-        android:minHeight="48dp"
+        android:minHeight="40dp"
+        android:minWidth="40dp"
         android:textColor="@color/toolbar_left_back_text"
         android:textSize="@dimen/toolbar_left_back_text"
         tools:text=""/>
@@ -43,12 +44,14 @@
         android:layout_gravity="left|center_vertical"
         android:layout_marginLeft="5dp"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="40dp"
+        android:minWidth="40dp"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         android:textColor="@color/toolbar_left_option_text"
         android:textSize="@dimen/toolbar_left_option_text"
         android:visibility="gone"
+        tools:visibility="visible"
         tools:text="左侧"/>
 
     <TextView

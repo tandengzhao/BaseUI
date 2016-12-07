@@ -24,16 +24,19 @@
             android:id="@+id/ViewHeadbar_tvHeadbarLeftBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
             android:layout_gravity="left|center_vertical"
+            android:layout_centerVertical="true"
             android:drawableLeft="@drawable/ic_arrow_back_white"
             android:drawablePadding="2dp"
             android:gravity="center_vertical"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
+            android:minWidth="30dp"
             android:textColor="@color/toolbar_left_back_text"
             android:textSize="@dimen/toolbar_left_back_text"
-            tools:text=""/>
+            tools:text=""
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
         <TextView
             android:id="@+id/ViewHeadbar_tvHeadbarLeftOption"
@@ -44,7 +47,8 @@
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/ViewHeadbar_tvHeadbarLeftBack"
             android:gravity="center"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
+            android:minWidth="40dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             android:textColor="@color/toolbar_left_option_text"
@@ -78,12 +82,14 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="1dp"
             android:gravity="center"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
+            android:minWidth="40dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             android:textColor="@color/toolbar_left_option_text"
             android:textSize="@dimen/toolbar_left_option_text"
             android:visibility="gone"
+            tools:visibility="visible"
             tools:text="右侧"/>
 
         <TextView
@@ -94,7 +100,8 @@
             android:layout_marginRight="1dp"
             android:layout_toLeftOf="@id/ViewHeadbar_tvHeadbarRightOption"
             android:gravity="center"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
+            android:minWidth="40dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             android:textColor="@color/toolbar_left_option_text"
@@ -109,13 +116,16 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/ViewHeadbar_tvHeadbarRightOption1"
             android:gravity="center"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
+            android:minWidth="40dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             android:textColor="@color/toolbar_left_option_text"
             android:textSize="@dimen/toolbar_left_option_text"
             android:visibility="gone"
             tools:text="右侧2"/>
+
+
     </RelativeLayout>
 </LinearLayout>
 
