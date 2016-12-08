@@ -1,14 +1,11 @@
 package com.alanapi.ui;
 
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,12 +26,12 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   protected TextView tvToolbarRightOption2;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    super.setContentView(R.layout.activity_headbar);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-      getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-    }
+  protected void initActivityData() {
+    initData();
+  }
+
+  @Override
+  protected void initActivityView() {
     rootActivityLayout = getViewById(R.id.ActivityHeadbar_llRootLayout);
     rootHeadBarLayout = getViewById(R.id.ViewHeadbar_rootLayout);
     tvToolbarTitle = getViewById(R.id.ViewHeadbar_tvHeadbarTitle);
@@ -82,7 +79,11 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     showToolbarLeftBack();
     setContentView(getContentViewLayoutResID());
     initView();
-    initData();
+  }
+
+  @Override
+  protected int getActivityContentViewLayoutResID() {
+    return R.layout.activity_headbar;
   }
 
   public void setHeadBarBackgroundResource(int resId) {
@@ -371,7 +372,6 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
 
   /**
    * 获取ContentViewLayoutResID
-   *
    * @return
    */
   protected abstract int getContentViewLayoutResID();

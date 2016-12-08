@@ -1,22 +1,39 @@
 package com.alanapi.ui;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.IdRes;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
+
+import com.alanapi.ui.util.StatusBarUtil;
 
 /**
  * @version V1.0  16/7/1上午10:42
  * @author:OliverTan(www.tandunzhao.cn)
  */
-public class Activity extends android.app.Activity {
+public abstract class Activity extends android.app.Activity {
   private ActivityPresenter activityPresenter;
+
+  protected int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;
+  protected boolean isWindowTranslucentStatus = true;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     activityPresenter = new ActivityPresenter(this);
     activityPresenter.onCreate(savedInstanceState);
+
+    super.setContentView(getActivityContentViewLayoutResID());
+
+    if (isWindowTranslucentStatus && Build.VERSION.SDK_INT >= miniSdkInt) {
+      getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    }
+
+    initActivityView();
+    initActivityData();
   }
 
   @Override
@@ -68,6 +85,32 @@ public class Activity extends android.app.Activity {
     super.onDestroy();
   }
 
+  /**
+   * 设置状态栏颜色
+   * @param color
+   * @param alpha 0~1的值，0完全透明，1完全不透明
+   */
+  protected void setStatusBarColor(int color, float alpha) {
+    StatusBarUtil.setColor(this, color, alpha);
+  }
+
+  protected void setStatusBarColor(int color) {
+    setStatusBarColor(color, -1);
+  }
+
+  protected void setStatusBarColorResource(@ColorRes int resColor) {
+    setStatusBarColorResource(resColor, -1);
+  }
+
+  /**
+   * 设置状态栏颜色
+   * @param resColor
+   * @param alpha 0~1的值，0完全透明，1完全不透明
+   */
+  protected void setStatusBarColorResource(@ColorRes int resColor, float alpha) {
+    setStatusBarColor(getResources().getColor(resColor), alpha);
+  }
+
   protected void showToastMessage(String msg) {
     activityPresenter.showToastMessage(msg);
   }
@@ -83,4 +126,20 @@ public class Activity extends android.app.Activity {
   protected <T extends View> T getViewById(@IdRes int id) {
     return (T) this.findViewById(id);
   }
+
+  /**
+   * 初始化数据
+   */
+  protected abstract void initActivityData();
+
+  /**
+   * 初始化View控件
+   */
+  protected abstract void initActivityView();
+
+  /**
+   * 获取ContentViewLayoutResID
+   * @return
+   */
+  protected abstract int getActivityContentViewLayoutResID();
 }

@@ -3,21 +3,21 @@ package com.alanapi.ui.demo;
 import com.alanapi.ui.AppCompatActivity;
 
 /**
- * @version V1.0  16/10/12下午2:48
+ * @version V1.0  2016/12/8上午9:45
  * @author:OliverTan(www.tandunzhao.cn)
  */
-
-public class LoginActivity extends AppCompatActivity {
+public class AppCompatActivityDemo extends AppCompatActivity {
   @Override
   protected void initActivityData() {
   }
 
   @Override
   protected void initActivityView() {
+    setStatusBarColorResource(R.color.yellow);
   }
 
   @Override
   protected int getActivityContentViewLayoutResID() {
-    return R.layout.activity_login;
+    return R.layout.activity_app_compat_demo;
   }
 }

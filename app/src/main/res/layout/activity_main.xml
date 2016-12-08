@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_xn"
+    android:fitsSystemWindows="true"
     tools:context="com.alanapi.ui.demo.MainActivity">
 
     <LinearLayout
@@ -17,6 +19,35 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通Activity" />
+
+        <Button
+            android:id="@+id/fragmentActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通FragmentActivity" />
+
+        <Button
+            android:id="@+id/appActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通AppCompatActivity" />
+
+        <Button
+            android:id="@+id/drawerActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通DrawerLayoutActivity" />
+        <Button
+            android:id="@+id/slidingPaneActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通SlidingPaneLayoutActivity" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onMainToolbar"
@@ -27,11 +58,13 @@
             android:layout_height="wrap_content"
             android:onClick="onMainHeadbar"
             android:text="MainHeadbarActivity" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onMainHeadbarAppCompat"
             android:text="MainHeadbarAppCompatActivity" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

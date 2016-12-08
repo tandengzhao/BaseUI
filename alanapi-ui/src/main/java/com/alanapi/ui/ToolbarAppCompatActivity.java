@@ -1,15 +1,12 @@
 package com.alanapi.ui;
 
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,12 +24,12 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
   protected TextView tvToolbarLeftOption;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    super.setContentView(R.layout.activity_toolbar_app_compat);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-      getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-    }
+  protected void initActivityData() {
+    initData();
+  }
+
+  @Override
+  protected void initActivityView() {
     rootActivityLayout = getViewById(R.id.ActivityToolbarAppCompat_llRootLayout);
     toolbar = getViewById(R.id.ViewToolbar_toolBar);
     tvToolbarTitle = getViewById(R.id.ViewToolbar_tvToolbarTitle);
@@ -68,11 +65,14 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
       getSupportActionBar().setDisplayShowHomeEnabled(false);
       showToolbarLeftBack();
     }
-
     setContentView(getContentViewLayoutResID());
 
     initView();
-    initData();
+  }
+
+  @Override
+  protected int getActivityContentViewLayoutResID() {
+    return R.layout.activity_toolbar_app_compat;
   }
 
   public void setToolBarBackgroundResource(int resId) {

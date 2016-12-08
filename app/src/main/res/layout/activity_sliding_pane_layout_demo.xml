@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:id="@+id/slidingPaneLayout"
+                                             android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/leftPane"
+        android:layout_width="240dp"
+        android:background="#0000FF"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:layout_height="match_parent">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contentFrame"
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@drawable/bg_xn"
+        android:orientation="vertical"
+        android:layout_height="match_parent" />
+</android.support.v4.widget.SlidingPaneLayout>

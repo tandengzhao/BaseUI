@@ -7,6 +7,13 @@
     <color name="shapeColorSolidDefault" >#FFD9EC</color>
     <color name="shapeColorSolidPressed" >#F2F2F2</color>
 
+    <color name="gray">#D2D2D2</color>
+    <color name="black">#303030</color>
+    <color name="red">#FF0000</color>
+    <color name="purple">#FF00FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="blue">#0000FF</color>
+
     <!--<color name="shapeRectangleFilletColorSolidTopLeftRightDefault" >#FFFF00</color>-->
     <!--<color name="shapeRectangleFilletColorSolidTopLeftRightPressed" >#F2F2F2</color>-->
     <!--<color name="shapeRectangleFilletColorSolidTopRightDefault" >#FF0000</color>-->

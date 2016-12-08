@@ -135,10 +135,10 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
    */
   public List<T> getSelectItem() {
     List<T> listSelectData = new ArrayList<>();
-    for (String positionStr: listSelectItemPosition) {
-      if(positionStr.matches("\\d+")) {
-        int position = Integer.parseInt(positionStr);
-        listSelectData.add(getItem(position));
+    int[] positions = getSelectItemPosition();
+    for (int p: positions) {
+      if(p > -1) {
+        listSelectData.add(getItem(p));
       }
     }
     return listSelectData;
@@ -161,20 +161,30 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
    * @return
    */
   public int getSingleSelectItemPosition() {
-    if(listSelectItemPosition.size() > 0) {
-      String positionStr = listSelectItemPosition.get(0);
-      if(positionStr.matches("\\d+")) {
-        int position = Integer.parseInt(positionStr);
-        return position;
+    int[] pos = getSelectItemPosition();
+    if(pos != null && pos.length > 0) {
+      if(pos[0] > -1) {
+        return pos[0];
       }
     }
     return -1;
   }
 
+  /**
+   * 获取选中的Position
+   * @return
+   */
   public int[] getSelectItemPosition() {
     if(listSelectItemPosition.size() > 0) {
-      for (String positionStr: listSelectItemPosition) {
-
+      int[] pos = new int[listSelectItemPosition.size()];
+      for (int i = 0; i < listSelectItemPosition.size(); i++) {
+        String positionStr = listSelectItemPosition.get(i);
+        if(positionStr.matches("\\d+")) {
+          int position = Integer.parseInt(positionStr);
+          pos[i] = position;
+        } else {
+          pos[i] = -1;
+        }
       }
     }
     return null;
