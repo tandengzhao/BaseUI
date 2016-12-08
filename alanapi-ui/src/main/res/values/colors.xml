@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-
-    <color name="toolbar_background">#666666</color>
-    <color name="toolbar_left_back_text">#FFFFFF</color>
-    <color name="toolbar_left_option_text">#FFFFFF</color>
-    <color name="toolbar_title_text">#FFFFFF</color>
+    <color name="ui_toolbarBackground">#303030</color>
+    <color name="ui_toolbarBackgroundDark">#000000</color>
+    <color name="ui_toolbarText">#FFFFFF</color>
+    <color name="ui_toolbarTextCenter">@color/ui_toolbarText</color>
+    <color name="ui_toolbarTextLeftBack">@color/ui_toolbarText</color>
+    <color name="ui_toolbarTextLeftOption">@color/ui_toolbarText</color>
+    <color name="ui_toolbarTextRightOption">@color/ui_toolbarText</color>
+    <color name="ui_colorAccent">#FF4081</color>
 
     <!-- 默认填充颜色 -->
     <color name="shapeColorSolidDefault" >#FFFFFF</color>

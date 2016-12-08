@@ -7,9 +7,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/ui_toolbarBackgroundDark</item>
+        <item name="colorPrimary">@color/ui_toolbarBackground</item>
+        <item name="colorAccent">@color/ui_colorAccent</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -18,5 +18,13 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ui_Toolbar" >
+        <item name="android:background">@color/ui_toolbarBackground</item>
+    </style>
+    <style name="ui_ToolbarActivity" parent="ui_Toolbar" >
+    </style>
+    <style name="ui_ToolbarLayout" parent="ui_Toolbar" >
     </style>
 </resources>

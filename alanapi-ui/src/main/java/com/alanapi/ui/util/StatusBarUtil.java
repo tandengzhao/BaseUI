@@ -7,16 +7,20 @@ import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SlidingPaneLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+
+import java.lang.reflect.Field;
 
 /**
  * @version V1.0  16/9/9下午5:18
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public class StatusBarUtil {
+  private static final String TAG = "StatusBarUtil";
 
   /**
    * 设置状态栏颜色
@@ -280,7 +284,6 @@ public class StatusBarUtil {
     return statusBarView;
   }
 
-
   /**
    * 设置根布局参数
    */
@@ -297,9 +300,21 @@ public class StatusBarUtil {
    * @param context context
    * @return 状态栏高度
    */
-  private static int getStatusBarHeight(Context context) {
+  public static int getStatusBarHeight(Context context) {
     // 获得状态栏高度
     int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-    return context.getResources().getDimensionPixelSize(resourceId);
+    if(resourceId > 0) {
+      return context.getResources().getDimensionPixelSize(resourceId);
+    }
+    try {
+      Class<?> c = Class.forName("com.android.internal.R$dimen");
+      Object obj = c.newInstance();
+      Field field = c.getField("status_bar_height");
+      int x = Integer.parseInt(field.get(obj).toString());
+      return context.getResources().getDimensionPixelSize(x);
+    } catch (Exception e){
+      Log.e(TAG, "getStatusBarHeight: ", e);
+    }
+    return 0;
   }
 }

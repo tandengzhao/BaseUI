@@ -3,6 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="ui_toolbarBackground">#FFFFFA</color>
+    <color name="ui_toolbarText">#303030</color>
 
     <color name="shapeColorSolidDefault" >#FFD9EC</color>
     <color name="shapeColorSolidPressed" >#F2F2F2</color>

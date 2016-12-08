@@ -17,7 +17,7 @@ import com.alanapi.ui.util.StatusBarUtil;
 public abstract class FragmentActivity extends android.support.v4.app.FragmentActivity {
   private ActivityPresenter activityPresenter;
 
-  protected int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;
+  protected int miniSdkInt = Build.VERSION_CODES.KITKAT;
   protected boolean isWindowTranslucentStatus = true;
 
   @Override

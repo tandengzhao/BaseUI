@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="toolbar_mini_height" >50dp</dimen>
-    <dimen name="toolbar_left_back_text">14sp</dimen>
-    <dimen name="toolbar_left_option_text">14sp</dimen>
-    <dimen name="toolbar_title_text">18sp</dimen>
-    <dimen name="headbar_mini_height" >50dp</dimen>
-    <dimen name="headbar_padding_top" >0dp</dimen>
+    <dimen name="ui_toolbarMiniHeight">50dp</dimen>
+    <dimen name="ui_toolbarText">14sp</dimen>
+    <dimen name="ui_toolbarTextCenter">18sp</dimen>
+    <dimen name="ui_toolbarTextLeftBack">@dimen/ui_toolbarText</dimen>
+    <dimen name="ui_toolbarTextLeftOption">@dimen/ui_toolbarText</dimen>
+    <dimen name="ui_toolbarTextRightOption">@dimen/ui_toolbarText</dimen>
+    <dimen name="ui_toolbarPadding">5dp</dimen>
+    <dimen name="ui_toolbarPaddingLeft">@dimen/ui_toolbarPadding</dimen>
+    <dimen name="ui_toolbarPaddingRight">@dimen/ui_toolbarPadding</dimen>
 
     <!-- 默认边框线条高度 -->
     <dimen name="shapeBorderLineHeight">1px</dimen>

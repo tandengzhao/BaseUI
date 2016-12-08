@@ -1,6 +1,8 @@
 package com.alanapi.ui;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
@@ -86,15 +88,19 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     return R.layout.activity_headbar;
   }
 
-  public void setHeadBarBackgroundResource(int resId) {
+  public void setToolBarBackgroundTransparent() {
+    rootHeadBarLayout.setBackgroundColor(Color.TRANSPARENT);
+  }
+
+  public void setToolBarBackgroundResource(int resId) {
     rootHeadBarLayout.setBackgroundResource(resId);
   }
 
-  public void setHeadBarBackgroundColor(int color) {
+  public void setToolBarBackgroundColor(int color) {
     rootHeadBarLayout.setBackgroundColor(color);
   }
 
-  public void setHeadBarBackgroundDrawable(Drawable drawable) {
+  public void setToolBarBackgroundDrawable(Drawable drawable) {
     rootHeadBarLayout.setBackgroundDrawable(drawable);
   }
 
@@ -138,6 +144,10 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   @Override
   public void setTitleColor(int textColor) {
     tvToolbarTitle.setTextColor(textColor);
+  }
+
+  public void setTitleColorResource(@ColorRes int resColor) {
+    setTitleColor(getResources().getColor(resColor));
   }
 
   public void setToolbarTitle(@NonNull CharSequence title) {

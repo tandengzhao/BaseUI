@@ -26,9 +26,9 @@ public class ActivityDrawerLayoutDemo extends AppCompatActivity {
     contentView = getViewById(R.id.content_frame);
     leftView = getViewById(R.id.left_drawer);
 
-    StatusBarUtil.setDrawerLayoutColor(this, drawerLayout, getResources().getColor(R.color.gray));
-    //StatusBarUtil.setDrawerLayoutColor(this, drawerLayout, getResources().getColor(R.color.gray), 0.5f);
-    StatusBarUtil.setDrawerLayoutTranslucent(this, drawerLayout);
+    //StatusBarUtil.setDrawerLayoutColor(this, drawerLayout, getResources().getColor(R.color.gray));
+    StatusBarUtil.setDrawerLayoutColor(this, drawerLayout, getResources().getColor(R.color.gray), 0.5f);
+    //StatusBarUtil.setDrawerLayoutTranslucent(this, drawerLayout);
   }
 
   @Override
