@@ -1,5 +1,7 @@
 package com.alanapi.ui.demo;
 
+import android.widget.ListView;
+
 import com.alanapi.ui.Activity;
 
 /**
@@ -7,13 +9,20 @@ import com.alanapi.ui.Activity;
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public class ActivityDemo extends Activity {
+  private ListView listView;
+  private ListAdapter listAdapter;
+
   @Override
   protected void initActivityData() {
+    listAdapter = new ListAdapter();
+    listView.setAdapter(listAdapter);
   }
 
   @Override
   protected void initActivityView() {
     setStatusBarColorResource(R.color.blue, 0.2f);
+
+    listView = getViewById(R.id.listView);
   }
 
   @Override
