@@ -202,6 +202,7 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
           pos[i] = -1;
         }
       }
+      return pos;
     }
     return null;
   }
