@@ -2,6 +2,7 @@ package com.alanapi.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 import java.util.Stack;
 
@@ -14,6 +15,7 @@ public final class ActivityManager {
   private volatile static Stack<Activity> activityStack = new Stack<Activity>();
   private volatile static ActivityManager instance;
   private final String TAG = "ActivityManager";
+  public static int miniSdkInt = Build.VERSION_CODES.KITKAT;
 
   private ActivityManager() {
   }

@@ -9,4 +9,9 @@
     <include
         layout="@layout/view_headbar"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/ui_toolbarDivider"
+        android:layout_height="@dimen/ui_toolbarDivider" />
+
 </LinearLayout>

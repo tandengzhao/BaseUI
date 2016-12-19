@@ -3,6 +3,7 @@ package com.alanapi.ui.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -206,5 +207,46 @@ public class ViewUtil {
    */
   public static Drawable getDrawable(Resources resources, @DrawableRes int drawableRes) {
     return resources.getDrawable(drawableRes);
+  }
+
+  public static GradientDrawable setGradientDrawableRadius(GradientDrawable gradientDrawable, float topLeftRadius, float topRightRadius, float bottomLeftRadius, float bottomRightRadius) {
+    gradientDrawable.setCornerRadii(new float[]{topLeftRadius, topLeftRadius, topRightRadius, topRightRadius, bottomRightRadius, bottomRightRadius, bottomLeftRadius, bottomLeftRadius});
+    return gradientDrawable;
+  }
+
+  public static GradientDrawable setGradientDrawableRadius(GradientDrawable gradientDrawable, float radius) {
+    gradientDrawable.setCornerRadius(radius);
+    return gradientDrawable;
+  }
+
+  public static GradientDrawable setGradientDrawableStroke(GradientDrawable gradientDrawable, int width, int strokeColor, float dashWidth, float dashGap) {
+    gradientDrawable.setStroke(width, strokeColor, dashWidth, dashGap);
+    return gradientDrawable;
+  }
+
+  public static GradientDrawable setGradientDrawableStroke(GradientDrawable gradientDrawable, int width, int strokeColor) {
+    gradientDrawable.setStroke(width, strokeColor);
+    return gradientDrawable;
+  }
+
+  public static GradientDrawable setGradientDrawableSolid(GradientDrawable gradientDrawable, int solidColor) {
+    gradientDrawable.setColor(solidColor);
+    return gradientDrawable;
+  }
+
+  public static GradientDrawable getRectangleDrawable() {
+    GradientDrawable gradientDrawable = getGradientDrawable();
+    gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+    return gradientDrawable;
+  }
+
+  public static GradientDrawable getOvalDrawable() {
+    GradientDrawable gradientDrawable = getGradientDrawable();
+    gradientDrawable.setShape(GradientDrawable.OVAL);
+    return gradientDrawable;
+  }
+
+  public static GradientDrawable getGradientDrawable() {
+    return new GradientDrawable();
   }
 }

@@ -10,6 +10,8 @@ import android.view.WindowManager;
 
 import com.alanapi.ui.util.StatusBarUtil;
 
+import static com.alanapi.ui.ActivityManager.miniSdkInt;
+
 /**
  * @version V1.0  16/7/1上午11:32
  * @author:OliverTan(www.tandunzhao.cn)
@@ -17,7 +19,6 @@ import com.alanapi.ui.util.StatusBarUtil;
 public abstract class AppCompatActivity extends android.support.v7.app.AppCompatActivity {
   private ActivityPresenter activityPresenter;
 
-  protected int miniSdkInt = Build.VERSION_CODES.KITKAT;
   protected boolean isWindowTranslucentStatus = true;
 
   @Override

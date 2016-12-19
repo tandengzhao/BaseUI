@@ -3,6 +3,7 @@ package com.alanapi.ui;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
@@ -161,6 +162,10 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
 
   public void setToolbarLeftBack(@StringRes int titleRes) {
     tvToolbarLeftBack.setText(titleRes);
+  }
+
+  public void setToolbarLeftBackDrawableLeftResource(@DrawableRes int resId) {
+    ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, resId);
   }
 
   public void setToolbarLeftBackDrawableLeft(Drawable drawable) {

@@ -8,6 +8,7 @@
     <color name="ui_toolbarTextLeftOption">@color/ui_toolbarText</color>
     <color name="ui_toolbarTextRightOption">@color/ui_toolbarText</color>
     <color name="ui_colorAccent">#FF4081</color>
+    <color name="ui_toolbarDivider">#FFFFFF</color>
 
     <!-- 默认填充颜色 -->
     <color name="shapeColorSolidDefault" >#FFFFFF</color>

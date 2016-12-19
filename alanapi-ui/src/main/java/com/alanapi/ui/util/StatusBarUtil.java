@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 
 import java.lang.reflect.Field;
 
+import static com.alanapi.ui.ActivityManager.miniSdkInt;
+
 /**
  * @version V1.0  16/9/9下午5:18
  * @author:OliverTan(www.tandunzhao.cn)
@@ -46,6 +48,10 @@ public class StatusBarUtil {
    * @param color 状态栏颜色值
    */
   public static void setColor(Activity activity, int color) {
+    if(Build.VERSION.SDK_INT < miniSdkInt) {
+      return;
+    }
+
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
       activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -67,6 +73,10 @@ public class StatusBarUtil {
    * @param alpha 状态栏透明度
    */
   public static void setColor(Activity activity, int color, float alpha) {
+    if(Build.VERSION.SDK_INT < miniSdkInt) {
+      return;
+    }
+
     if(alpha == 0) {
       setTranslucent(activity);
     } else if(alpha > 0 && alpha < 1) {
@@ -87,6 +97,10 @@ public class StatusBarUtil {
    * @param activity
    */
   public static void setTranslucent(Activity activity) {
+    if(Build.VERSION.SDK_INT < miniSdkInt) {
+      return;
+    }
+
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
       activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -145,6 +159,10 @@ public class StatusBarUtil {
    * @param alpha 状态栏透明度
    */
   public static void setDrawerLayoutColor(Activity activity, DrawerLayout drawerLayout, int color, float alpha) {
+    if(Build.VERSION.SDK_INT < miniSdkInt) {
+      return;
+    }
+
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
       return;
     }
@@ -230,6 +248,9 @@ public class StatusBarUtil {
    * @param alpha 状态栏透明度
    */
   public static void setSlidingPaneLayoutColor(Activity activity, SlidingPaneLayout slidingPaneLayout, int color, float alpha) {
+    if(Build.VERSION.SDK_INT < miniSdkInt) {
+      return;
+    }
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
       return;
     }
@@ -288,6 +309,9 @@ public class StatusBarUtil {
    * 设置根布局参数
    */
   private static void setRootView(Activity activity) {
+    if(Build.VERSION.SDK_INT < miniSdkInt) {
+      return;
+    }
     ViewGroup rootView = (ViewGroup) ((ViewGroup) activity.findViewById(android.R.id.content)).getChildAt(0);
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
       rootView.setFitsSystemWindows(true);

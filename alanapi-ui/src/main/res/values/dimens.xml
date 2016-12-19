@@ -9,6 +9,7 @@
     <dimen name="ui_toolbarPadding">5dp</dimen>
     <dimen name="ui_toolbarPaddingLeft">@dimen/ui_toolbarPadding</dimen>
     <dimen name="ui_toolbarPaddingRight">@dimen/ui_toolbarPadding</dimen>
+    <dimen name="ui_toolbarDivider">1dp</dimen>
 
     <!-- 默认边框线条高度 -->
     <dimen name="shapeBorderLineHeight">1px</dimen>
