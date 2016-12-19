@@ -107,6 +107,22 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   }
 
   /**
+   * 是否全部选中
+   * @return
+   */
+  public boolean isSelectAllItem() {
+    return getCount() == listSelectItemPosition.size();
+  }
+
+  /**
+   * 是否选中的为空
+   * @return
+   */
+  public boolean isSelectEmptyItem() {
+    return listSelectItemPosition.isEmpty();
+  }
+
+  /**
    * 添加选中的Item
    * @param position
    */
