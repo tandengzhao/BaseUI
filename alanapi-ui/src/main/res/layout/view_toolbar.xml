@@ -11,7 +11,7 @@
                                    android:contentInsetLeft="1dp"
                                    android:contentInsetRight="1dp"
                                    android:contentInsetStart="1dp"
-                                   android:elevation="1dp"
+                                   android:elevation="@dimen/ui_toolbarDivider"
                                    android:fitsSystemWindows="true"
                                    android:minHeight="@dimen/ui_toolbarMiniHeight"
                                    app:contentInsetEnd="1dp"

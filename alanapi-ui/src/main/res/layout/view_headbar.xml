@@ -7,7 +7,7 @@
               android:layout_height="wrap_content"
               android:layout_margin="0dp"
               style="@style/ui_ToolbarLayout"
-              android:elevation="1dp"
+              android:elevation="@dimen/ui_toolbarDivider"
               android:fitsSystemWindows="true"
               android:minHeight="@dimen/ui_toolbarMiniHeight"
               app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

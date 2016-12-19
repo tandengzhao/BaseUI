@@ -28,7 +28,7 @@ public abstract class Activity extends android.app.Activity {
 
     super.setContentView(getActivityContentViewLayoutResID());
 
-    if (isWindowTranslucentStatus && Build.VERSION.SDK_INT >= miniSdkInt) {
+    if (isWindowTranslucentStatus && Build.VERSION.SDK_INT >= miniSdkInt && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
 

@@ -15,7 +15,7 @@ public final class ActivityManager {
   private volatile static Stack<Activity> activityStack = new Stack<Activity>();
   private volatile static ActivityManager instance;
   private final String TAG = "ActivityManager";
-  public static int miniSdkInt = Build.VERSION_CODES.KITKAT;
+  public static int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;
 
   private ActivityManager() {
   }

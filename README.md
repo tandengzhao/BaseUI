@@ -15,4 +15,4 @@
 
 
 #使用
-compile 'com.alanapi.ui:alanapi-ui:1.0.6'
+compile 'com.alanapi.ui:alanapi-ui:1.0.8'
