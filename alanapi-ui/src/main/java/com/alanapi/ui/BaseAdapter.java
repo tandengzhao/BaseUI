@@ -146,6 +146,18 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   }
 
   /**
+   * 切换选中Item
+   * @param position
+   */
+  public void toggleSelectItem(int position) {
+    if(isSelectItem(position)) {
+      removeSelectItem(position);
+    } else {
+      addSelectItem(position);
+    }
+  }
+
+  /**
    * 获取选中的Item
    * @return
    */

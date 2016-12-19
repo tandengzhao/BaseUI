@@ -1,6 +1,7 @@
 package com.alanapi.ui;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
   protected List<T> listData = new ArrayList<>();
   private List<String> listSelectItemPosition = new ArrayList<>();
   private boolean isSingleSelectItem = false;//单选
+  private OnItemClickListener onItemClickListener;
+  private OnItemLongClickListener onItemLongClickListener;
 
   @Override
   public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -21,8 +24,25 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
   }
 
   @Override
-  public void onBindViewHolder(BaseViewHolder holder, int position) {
+  public void onBindViewHolder(BaseViewHolder holder, final int position) {
     onBindViewHolder(getItemViewType(position), position, holder);
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if(onItemClickListener != null) {
+          onItemClickListener.onItemClick(v, position);
+        }
+      }
+    });
+    holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+      @Override
+      public boolean onLongClick(View v) {
+        if(onItemLongClickListener != null) {
+          return onItemLongClickListener.onItemLongClick(v, position);
+        }
+        return false;
+      }
+    });
   }
 
   public T getItem(int position) {
@@ -130,6 +150,18 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
   }
 
   /**
+   * 切换选中Item
+   * @param position
+   */
+  public void toggleSelectItem(int position) {
+    if(isSelectItem(position)) {
+      removeSelectItem(position);
+    } else {
+      addSelectItem(position);
+    }
+  }
+
+  /**
    * 获取选中的Item
    * @return
    */
@@ -199,4 +231,28 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     this.isSingleSelectItem = singleSelectItem;
   }
 
+
+  public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+    this.onItemClickListener = onItemClickListener;
+  }
+
+  public OnItemClickListener getOnItemClickListener() {
+    return onItemClickListener;
+  }
+
+  public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
+    this.onItemLongClickListener = onItemLongClickListener;
+  }
+
+  public OnItemLongClickListener getOnItemLongClickListener() {
+    return onItemLongClickListener;
+  }
+
+  public interface OnItemClickListener {
+    void onItemClick(View view, int position);
+  }
+
+  public interface OnItemLongClickListener {
+    boolean onItemLongClick(View view, int position);
+  }
 }
