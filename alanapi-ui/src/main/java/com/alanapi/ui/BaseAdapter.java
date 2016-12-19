@@ -119,6 +119,22 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   }
 
   /**
+   * 选中所有
+   */
+  public void addSelectAllItem() {
+    for(int i = 0; i < getCount(); i++) {
+      addSelectItem(i);
+    }
+  }
+
+  /**
+   * 删除所有选中项
+   */
+  public void removeSelectAllItem() {
+    listSelectItemPosition.clear();
+  }
+
+  /**
    * 删除选中的Item
    * @param position
    */
