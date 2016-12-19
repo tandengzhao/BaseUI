@@ -17,6 +17,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
   private boolean isSingleSelectItem = false;//单选
   private OnItemClickListener onItemClickListener;
   private OnItemLongClickListener onItemLongClickListener;
+  private OnSelectItemChangeListener onSelectItemChangeListener;
 
   @Override
   public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -120,6 +121,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     if(!listSelectItemPosition.contains(str)) {
       listSelectItemPosition.add(str);
     }
+    if(onSelectItemChangeListener != null) {
+      onSelectItemChangeListener.onSelectItem(position, true);
+    }
   }
 
   /**
@@ -146,6 +150,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     String str = String.valueOf(position);
     if(listSelectItemPosition.contains(str)) {
       listSelectItemPosition.remove(str);
+    }
+    if(onSelectItemChangeListener != null) {
+      onSelectItemChangeListener.onSelectItem(position, false);
     }
   }
 
@@ -240,6 +247,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     return onItemClickListener;
   }
 
+  public interface OnItemClickListener {
+    void onItemClick(View view, int position);
+  }
+
   public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
     this.onItemLongClickListener = onItemLongClickListener;
   }
@@ -248,11 +259,19 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     return onItemLongClickListener;
   }
 
-  public interface OnItemClickListener {
-    void onItemClick(View view, int position);
-  }
-
   public interface OnItemLongClickListener {
     boolean onItemLongClick(View view, int position);
+  }
+
+  public void setOnSelectItemChangeListener(OnSelectItemChangeListener onSelectItemChangeListener) {
+    this.onSelectItemChangeListener = onSelectItemChangeListener;
+  }
+
+  public OnSelectItemChangeListener getOnSelectItemChangeListener() {
+    return onSelectItemChangeListener;
+  }
+
+  public interface OnSelectItemChangeListener {
+    void onSelectItem(int position, boolean isSelect);
   }
 }

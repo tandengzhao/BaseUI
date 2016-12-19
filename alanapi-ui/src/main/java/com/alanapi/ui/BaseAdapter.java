@@ -19,6 +19,8 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   private List<String> listSelectItemPosition = new ArrayList<>();
   private boolean isSingleSelectItem = false;//单选
 
+  private OnSelectItemChangeListener onSelectItemChangeListener;
+
   @Override
   public int getCount() {
     return listData.size();
@@ -116,6 +118,9 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
     if(!listSelectItemPosition.contains(str)) {
       listSelectItemPosition.add(str);
     }
+    if(onSelectItemChangeListener != null) {
+      onSelectItemChangeListener.onSelectItem(position, true);
+    }
   }
 
   /**
@@ -142,6 +147,9 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
     String str = String.valueOf(position);
     if(listSelectItemPosition.contains(str)) {
       listSelectItemPosition.remove(str);
+    }
+    if(onSelectItemChangeListener != null) {
+      onSelectItemChangeListener.onSelectItem(position, false);
     }
   }
 
@@ -225,5 +233,17 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
    */
   public void setSingleSelectItem(boolean singleSelectItem) {
     this.isSingleSelectItem = singleSelectItem;
+  }
+
+  public void setOnSelectItemChangeListener(OnSelectItemChangeListener onSelectItemChangeListener) {
+    this.onSelectItemChangeListener = onSelectItemChangeListener;
+  }
+
+  public OnSelectItemChangeListener getOnSelectItemChangeListener() {
+    return onSelectItemChangeListener;
+  }
+
+  public interface OnSelectItemChangeListener {
+    void onSelectItem(int position, boolean isSelect);
   }
 }
