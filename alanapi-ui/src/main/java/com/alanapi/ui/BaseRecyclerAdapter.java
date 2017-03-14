@@ -1,5 +1,6 @@
 package com.alanapi.ui;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,20 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
   private OnItemLongClickListener onItemLongClickListener;
   private OnSelectItemChangeListener onSelectItemChangeListener;
 
+  protected Context context;
+
+  public BaseRecyclerAdapter() {
+  }
+
+  public BaseRecyclerAdapter(Context context) {
+    this.context = context;
+  }
+
   @Override
   public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    if(this.context == null) {
+      this.context = parent.getContext();
+    }
     return onCreateViewHolder(viewType, parent);
   }
 

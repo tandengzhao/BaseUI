@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="ui_elevation">1dp</dimen>
     <dimen name="ui_toolbarMiniHeight">50dp</dimen>
-    <dimen name="ui_toolbarText">14sp</dimen>
-    <dimen name="ui_toolbarTextCenter">18sp</dimen>
-    <dimen name="ui_toolbarTextLeftBack">@dimen/ui_toolbarText</dimen>
-    <dimen name="ui_toolbarTextLeftOption">@dimen/ui_toolbarText</dimen>
-    <dimen name="ui_toolbarTextRightOption">@dimen/ui_toolbarText</dimen>
     <dimen name="ui_toolbarPadding">5dp</dimen>
     <dimen name="ui_toolbarPaddingLeft">@dimen/ui_toolbarPadding</dimen>
     <dimen name="ui_toolbarPaddingRight">@dimen/ui_toolbarPadding</dimen>
-    <dimen name="ui_toolbarDivider">1dp</dimen>
-    <dimen name="ui_toolbarDividerView">@dimen/ui_toolbarDivider</dimen>
 
-    <!-- 默认边框线条高度 -->
-    <dimen name="shapeBorderLineHeight">1px</dimen>
-    <!-- 默认边框圆角线条高度 -->
-    <dimen name="shapeBorderFilletLineHeight">@dimen/shapeBorderLineHeight</dimen>
-    <!-- 默认边框圆角大小 -->
-    <dimen name="shapeBorderFilletRadius">5dp</dimen>
-    <!-- 默认矩形圆角大小 -->
-    <dimen name="shapeRectangleFilletRadius">@dimen/shapeBorderFilletRadius</dimen>
-    <!-- 默认矩形顶部左圆角大小 -->
-    <dimen name="shapeRectangleFilletRadiusTopLeft">@dimen/shapeBorderFilletRadius</dimen>
-    <!-- 默认矩形顶部右圆角大小 -->
-    <dimen name="shapeRectangleFilletRadiusTopRight">@dimen/shapeBorderFilletRadius</dimen>
-    <!-- 默认矩形底部左圆角大小 -->
-    <dimen name="shapeRectangleFilletRadiusBottomLeft">@dimen/shapeBorderFilletRadius</dimen>
-    <!-- 默认矩形底部右圆角大小 -->
-    <dimen name="shapeRectangleFilletRadiusBottomRight">@dimen/shapeBorderFilletRadius</dimen>
+    <dimen name="ui_toolbarText">14sp</dimen>
+    <dimen name="ui_toolbarTextTitle">18sp</dimen>
+    <dimen name="ui_toolbarTextLeftBack">@dimen/ui_toolbarText</dimen>
+    <dimen name="ui_toolbarTextLeftOption">@dimen/ui_toolbarText</dimen>
+    <dimen name="ui_toolbarTextRightOption">@dimen/ui_toolbarText</dimen>
 </resources>

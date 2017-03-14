@@ -1,9 +1,13 @@
 package com.alanapi.ui.demo;
 
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alanapi.ui.AppCompatActivity;
 import com.alanapi.ui.UIHelper;
+import com.alanapi.ui.util.DrawableUtil;
+import com.alanapi.ui.util.ViewUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
   @Override
   protected void initActivityData() {
+
   }
 
   @Override
@@ -39,6 +44,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     getViewById(R.id.appActivity).setOnClickListener(this);
     getViewById(R.id.drawerActivity).setOnClickListener(this);
     getViewById(R.id.slidingPaneActivity).setOnClickListener(this);
+
+    getViewById(R.id.imageDrawableChange).setOnClickListener(this);
+
+
+    Drawable drawable = DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ic_keyboard_arrow_left_black_24dp), R.color.tint_colors);
+    getViewById(R.id.imageDrawableChange).setBackgroundDrawable(drawable);
+
+    TextView tv = getViewById(R.id.tvDrawableBack);
+    tv.setOnClickListener(this);
+    //tv.setText("");
+    //Drawable drawable1 = DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ic_chevron_left_black_24dp), R.color.tint_colors);
+    //Drawable drawable1 = DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ic_left_arrow), R.color.tint_colors);
+    Drawable drawable1 = DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), R.color.tint_colors);
+    //Drawable drawable1 = DrawableUtil.tintDrawable(this, DrawableUtil.getDrawable(this, R.mipmap.ui_back), R.color.tint_colors);
+    //Drawable drawable1 = DrawableUtil.tintDrawable(this, DrawableUtil.getDrawable(this, R.drawable.ic_back1), R.color.tint_colors);
+    ViewUtil.setTextViewCompoundDrawableLeft(tv, drawable1);
+
 
     setStatusBarColorResource(R.color.purple);
   }

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alanapi.ui.util.DrawableUtil;
 import com.alanapi.ui.util.ViewUtil;
 
 /**
@@ -70,12 +71,14 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
     }
     setContentView(getContentViewLayoutResID());
 
+    ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), R.color.ui_back));
+
     initView();
   }
 
   @Override
   protected int getActivityContentViewLayoutResID() {
-    return R.layout.activity_toolbar_app_compat;
+    return R.layout.ui_activity_toolbar_app_compat;
   }
 
   public void setToolBarBackgroundTransparent() {

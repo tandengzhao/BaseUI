@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.util.Log;
+
 import java.util.Stack;
+
+import static android.content.Context.ACTIVITY_SERVICE;
 
 /**
  * @version V1.0  16/7/1上午10:42
@@ -263,7 +266,7 @@ public final class ActivityManager {
   protected void killApp(Context context) {
     try {
       finishAllActivity();
-      android.app.ActivityManager activityMgr = (android.app.ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+      android.app.ActivityManager activityMgr = (android.app.ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
       activityMgr.restartPackage(context.getPackageName());
       activityMgr.killBackgroundProcesses(context.getPackageName());
     } catch (Exception e) {

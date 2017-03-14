@@ -1,5 +1,6 @@
 package com.alanapi.ui;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -84,6 +85,14 @@ public abstract class AppCompatActivity extends android.support.v7.app.AppCompat
     activityPresenter.onDestroy();
     activityPresenter = null;
     super.onDestroy();
+  }
+
+  /**
+   * 获取当前Activity Context
+   * @return
+   */
+  protected Context getContext() {
+    return this;
   }
 
   /**

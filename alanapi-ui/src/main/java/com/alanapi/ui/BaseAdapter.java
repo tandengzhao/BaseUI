@@ -1,5 +1,6 @@
 package com.alanapi.ui;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -21,6 +22,15 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
   private OnSelectItemChangeListener onSelectItemChangeListener;
 
+  protected Context context;
+
+  public BaseAdapter() {
+  }
+
+  public BaseAdapter(Context context) {
+    this.context = context;
+  }
+
   @Override
   public int getCount() {
     return listData.size();
@@ -38,19 +48,27 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
-    BaseViewHolder viewHolder;
+    if(this.context == null) {
+      this.context = parent.getContext();
+    }
+
+    BaseViewHolder viewHolder = null;
     int viewType = getItemViewType(position);
 
-    if(convertView == null || convertView.getTag() == null || cacheMap.get(viewType) == null) {
-      viewHolder = onCreateViewHolder(viewType, parent);
-      convertView = viewHolder.itemView;
-      convertView.setTag(viewHolder);
-      cacheMap.put(viewType, viewHolder);
-    } else {
-      viewHolder = (BaseViewHolder) convertView.getTag();
+    if(cacheMap.containsKey(viewType)) {
+      viewHolder = cacheMap.get(viewType);
     }
-    onBindViewHolder(viewType, position, viewHolder);
-    return viewHolder.itemView;
+    if(null == viewHolder) {
+      viewHolder = onCreateViewHolder(viewType, parent);
+    }
+    if(null != viewHolder) {
+      if(!cacheMap.containsKey(viewType)) {
+        cacheMap.put(viewType, viewHolder);
+      }
+      onBindViewHolder(viewType, position, viewHolder);
+      return viewHolder.itemView;
+    }
+    return convertView;
   }
 
   public abstract BaseViewHolder onCreateViewHolder(int viewType, ViewGroup parent);

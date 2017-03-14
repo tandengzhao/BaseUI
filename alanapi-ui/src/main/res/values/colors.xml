@@ -1,66 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="ui_divider">#F3F3F3</color>
     <color name="ui_toolbarBackground">#303030</color>
     <color name="ui_toolbarBackgroundDark">#000000</color>
+
     <color name="ui_toolbarText">#FFFFFF</color>
-    <color name="ui_toolbarTextCenter">@color/ui_toolbarText</color>
+    <color name="ui_toolbarTextTitle">@color/ui_toolbarText</color>
     <color name="ui_toolbarTextLeftBack">@color/ui_toolbarText</color>
     <color name="ui_toolbarTextLeftOption">@color/ui_toolbarText</color>
     <color name="ui_toolbarTextRightOption">@color/ui_toolbarText</color>
-    <color name="ui_colorAccent">#FF4081</color>
-    <color name="ui_toolbarDivider">#FFFFFF</color>
-
-    <!-- 默认填充颜色 -->
-    <color name="shapeColorSolidDefault" >#FFFFFF</color>
-    <!-- 默认填充颜色 -->
-    <color name="shapeColorSolidPressed" >#F2F2F2</color>
-    <!-- 默认线条颜色 -->
-    <color name="shapeColorStroke" >#000000</color>
-    <!-- 默认边框线条颜色 -->
-    <color name="shapeBorderColorStroke" >@color/shapeColorStroke</color>
-    <!-- 默认圆角边框线条颜色 -->
-    <color name="shapeBorderFilletColorStroke" >@color/shapeColorStroke</color>
-    <!-- 默认边框填充颜色 -->
-    <color name="shapeBorderColorSolidDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeBorderColorSolidPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形填充颜色 -->
-    <color name="shapeRectangleColorSolidDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleColorSolidPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 顶部圆角左右 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidTopLeftRightDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidTopLeftRightPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 顶部圆角右 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidTopRightDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidTopRightPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 顶部圆角左 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidTopLeftDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidTopLeftPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 底部圆角左右 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidBottomLeftRightDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidBottomLeftRightPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 底部圆角右 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidBottomRightDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidBottomRightPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 底部圆角左 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidBottomLeftDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidBottomLeftPressed" >@color/shapeColorSolidPressed</color>
-
-    <!-- 默认矩形 顶部圆角左右 底部线条 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidTopLeftRightLineBottomDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidTopLeftRightLineBottomPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 顶部圆角右 左线条 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidTopRightLineLeftDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidTopRightLineLeftPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 顶部圆角左 右线条 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidTopLeftLineRightDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidTopLeftLineRightPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 底部圆角左右 顶部线条 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidBottomLeftRightLineTopDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidBottomLeftRightLineTopPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 底部圆角右 左线条 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidBottomRightLineLeftDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidBottomRightLineLeftPressed" >@color/shapeColorSolidPressed</color>
-    <!-- 默认矩形 底部圆角左 右线条 填充颜色 -->
-    <color name="shapeRectangleFilletColorSolidBottomLeftLineRightDefault" >@color/shapeColorSolidDefault</color>
-    <color name="shapeRectangleFilletColorSolidBottomLeftLineRightPressed" >@color/shapeColorSolidPressed</color>
 </resources>
