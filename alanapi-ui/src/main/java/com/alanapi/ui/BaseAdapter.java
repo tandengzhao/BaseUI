@@ -79,6 +79,7 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   }
 
   public void setListData(List<T> listData) {
+    this.listSelectItemPosition.clear();
     this.listData.clear();
     if(listData != null && !listData.isEmpty()) {
       this.listData.addAll(listData);
@@ -93,6 +94,20 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   public void addData(T t) {
     listData.add(t);
     notifyDataSetChanged();
+  }
+
+  public void addData(List<T> list) {
+    if(list != null && !list.isEmpty()) {
+      this.listData.addAll(list);
+      notifyDataSetChanged();
+    }
+  }
+
+  public void addData(int index, List<T> list) {
+    if(list != null && !list.isEmpty()) {
+      this.listData.addAll(index, list);
+      notifyDataSetChanged();
+    }
   }
 
   public void addData(int index, T t) {
