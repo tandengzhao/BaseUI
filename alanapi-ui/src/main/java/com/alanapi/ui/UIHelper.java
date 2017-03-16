@@ -17,6 +17,24 @@ public class UIHelper {
   public static final String _KEY_ACTIVITY_TITLE = "_key_intent_put_value_activity_title";
 
   /**
+   * 获取默认数据 intent put activity title
+   * @param activity
+   * @return
+   */
+  public static String getActivityTitle(Activity activity) {
+    return activity.getIntent().getStringExtra(_KEY_ACTIVITY_TITLE);
+  }
+
+  /**
+   * 获取默认数据 intent put object data
+   * @param activity
+   * @return
+   */
+  public static Serializable getActivityData(Activity activity) {
+    return activity.getIntent().getSerializableExtra(_KEY_OBJECT_DATA);
+  }
+
+  /**
    * 显示Activity
    * @param context android.content.Context
    * @param clazz show activity class
