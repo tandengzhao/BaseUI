@@ -23,6 +23,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="普通Activity"/>
+        <Button
+            android:id="@+id/activityFull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通 全透明 Activity"/>
+        <Button
+            android:id="@+id/activityFull2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通 全透明 Activity"/>
 
         <Button
             android:id="@+id/fragmentActivity"

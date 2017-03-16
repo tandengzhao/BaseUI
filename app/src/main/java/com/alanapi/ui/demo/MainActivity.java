@@ -17,6 +17,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       case R.id.activity:
         UIHelper.showActivity(this, ActivityDemo.class);
         break;
+      case R.id.activityFull:
+        UIHelper.showActivity(this, ActivityDemoFull.class);
+        break;
+      case R.id.activityFull2:
+        UIHelper.showActivity(this, ActivityDemoFull2.class);
+        break;
       case R.id.fragmentActivity:
         UIHelper.showActivity(this, FragmentActivityDemo.class);
         break;
@@ -40,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   @Override
   protected void initActivityView() {
     getViewById(R.id.activity).setOnClickListener(this);
+    getViewById(R.id.activityFull).setOnClickListener(this);
+    getViewById(R.id.activityFull2).setOnClickListener(this);
     getViewById(R.id.fragmentActivity).setOnClickListener(this);
     getViewById(R.id.appActivity).setOnClickListener(this);
     getViewById(R.id.drawerActivity).setOnClickListener(this);
