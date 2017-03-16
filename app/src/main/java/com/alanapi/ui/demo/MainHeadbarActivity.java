@@ -16,6 +16,11 @@ public class MainHeadbarActivity extends HeadbarActivity {
 
   @Override
   protected void initView() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    }
+    LightStatusBarUtils.setLightStatusBar(this, true);
+
 //    rootActivityLayout.setBackgroundResource(R.color.toolbar_background);
 //    rootActivityLayout.setBackgroundResource(R.drawable.bg_xn);
 //    rootActivityLayout.setFitsSystemWindows(true);
@@ -24,7 +29,9 @@ public class MainHeadbarActivity extends HeadbarActivity {
 //    setHeadBarBackgroundResource(R.drawable.head_title);
     setStatusBarColorResource(R.color.blue, 0.1f);
 
-    setToolbarTitle("Headbar");
+
+
+    setToolbarTitle("Headbar  AA");
     setToolbarLeftBack("返回");
     setToolbarLeftOption("关闭");
     showToolbarLeftOption();
