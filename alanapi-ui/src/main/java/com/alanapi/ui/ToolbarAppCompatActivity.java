@@ -76,6 +76,17 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
     initView();
   }
 
+  /**
+   * 替换toolbar
+   * @param view
+   */
+  public void replaceToolbar(View view) {
+    if(toolbar != null) {
+      toolbar.removeAllViews();
+      toolbar.addView(view);
+    }
+  }
+
   @Override
   protected int getActivityContentViewLayoutResID() {
     return R.layout.ui_activity_toolbar_app_compat;

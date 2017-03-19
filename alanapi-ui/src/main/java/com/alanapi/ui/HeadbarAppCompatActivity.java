@@ -21,7 +21,7 @@ import com.alanapi.ui.util.ViewUtil;
  */
 public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   protected LinearLayout rootActivityLayout;
-  protected LinearLayout rootHeadBarLayout;
+  protected LinearLayout toolbar;
   protected TextView tvToolbarTitle;
   protected TextView tvToolbarLeftBack;
   protected TextView tvToolbarLeftOption;
@@ -37,7 +37,7 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   @Override
   protected void initActivityView() {
     rootActivityLayout = getViewById(R.id.ActivityHeadbar_llRootLayout);
-    rootHeadBarLayout = getViewById(R.id.ViewHeadbar_rootLayout);
+    toolbar = getViewById(R.id.ViewHeadbar_rootLayout);
     tvToolbarTitle = getViewById(R.id.ViewHeadbar_tvHeadbarTitle);
     tvToolbarLeftBack = getViewById(R.id.ViewHeadbar_tvHeadbarLeftBack);
     tvToolbarLeftOption = getViewById(R.id.ViewHeadbar_tvHeadbarLeftOption);
@@ -88,25 +88,36 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     initView();
   }
 
+  /**
+   * 替换toolbar
+   * @param view
+   */
+  public void replaceToolbar(View view) {
+    if(toolbar != null) {
+      toolbar.removeAllViews();
+      toolbar.addView(view);
+    }
+  }
+
   @Override
   protected int getActivityContentViewLayoutResID() {
     return R.layout.ui_activity_headbar;
   }
 
   public void setToolBarBackgroundTransparent() {
-    rootHeadBarLayout.setBackgroundColor(Color.TRANSPARENT);
+    toolbar.setBackgroundColor(Color.TRANSPARENT);
   }
 
   public void setToolBarBackgroundResource(int resId) {
-    rootHeadBarLayout.setBackgroundResource(resId);
+    toolbar.setBackgroundResource(resId);
   }
 
   public void setToolBarBackgroundColor(int color) {
-    rootHeadBarLayout.setBackgroundColor(color);
+    toolbar.setBackgroundColor(color);
   }
 
   public void setToolBarBackgroundDrawable(Drawable drawable) {
-    rootHeadBarLayout.setBackgroundDrawable(drawable);
+    toolbar.setBackgroundDrawable(drawable);
   }
 
   public void setActivityBackgroundResource(int resId) {
