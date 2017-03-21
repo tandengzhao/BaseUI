@@ -11,7 +11,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ui_elevation"
+        android:layout_height="@dimen/ui_divider"
         android:background="@color/ui_divider"/>
 
 </LinearLayout>

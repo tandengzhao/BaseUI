@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="ui_elevation">1dp</dimen>
+    <dimen name="ui_divider">1dp</dimen>
+
     <dimen name="ui_toolbarMiniHeight">50dp</dimen>
     <dimen name="ui_toolbarPadding">5dp</dimen>
     <dimen name="ui_toolbarPaddingLeft">@dimen/ui_toolbarPadding</dimen>

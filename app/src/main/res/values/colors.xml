@@ -18,6 +18,7 @@
     <color name="yellow">#FFFF00</color>
     <color name="blue">#0000FF</color>
 
+    <color name="ui_divider">#FF4081</color>
     <color name="ui_colorAccent">#FF4081</color>
 
     <color name="ui_toolbarDivider">#FFFFFF</color>
