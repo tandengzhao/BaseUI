@@ -48,7 +48,9 @@ public abstract class AppCompatActivity extends android.support.v7.app.AppCompat
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
       if(onKeyDownBack()) {
-        return activityPresenter.onKeyDown(keyCode, event);
+        if(activityPresenter.onKeyDown(keyCode, event)) {
+          return true;
+        }
       }
     } else if (keyCode == KeyEvent.KEYCODE_MENU) {
       if(onKeyDownMenu()) {
@@ -63,7 +65,7 @@ public abstract class AppCompatActivity extends android.support.v7.app.AppCompat
   }
 
   public boolean onKeyDownBack() {
-    return activityPresenter.onKeyDownBack();
+    return true;
   }
 
   public boolean onKeyDownMenu() {
