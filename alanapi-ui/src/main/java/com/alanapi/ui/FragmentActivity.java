@@ -48,7 +48,7 @@ public abstract class FragmentActivity extends android.support.v4.app.FragmentAc
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
       if(onKeyDownBack()) {
-        return true;
+        return activityPresenter.onKeyDown(keyCode, event);
       }
     } else if (keyCode == KeyEvent.KEYCODE_MENU) {
       if(onKeyDownMenu()) {

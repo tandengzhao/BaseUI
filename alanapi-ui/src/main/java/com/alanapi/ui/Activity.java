@@ -47,7 +47,7 @@ public abstract class Activity extends android.app.Activity {
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
       if(onKeyDownBack()) {
-        return true;
+        return activityPresenter.onKeyDown(keyCode, event);
       }
     } else if (keyCode == KeyEvent.KEYCODE_MENU) {
       if(onKeyDownMenu()) {
@@ -62,7 +62,7 @@ public abstract class Activity extends android.app.Activity {
   }
 
   public boolean onKeyDownBack() {
-    return activityPresenter.onKeyDownBack();
+    return true;
   }
 
   public boolean onKeyDownMenu() {
