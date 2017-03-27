@@ -19,6 +19,7 @@ public final class ActivityManager {
   private volatile static ActivityManager instance;
   private final String TAG = "ActivityManager";
   public static int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;
+  public static boolean isWindowTranslucentStatus = true;
 
   private ActivityManager() {
   }

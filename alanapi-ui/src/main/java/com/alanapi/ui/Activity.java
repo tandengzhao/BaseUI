@@ -11,6 +11,7 @@ import android.view.WindowManager;
 
 import com.alanapi.ui.util.StatusBarUtil;
 
+import static com.alanapi.ui.ActivityManager.isWindowTranslucentStatus;
 import static com.alanapi.ui.ActivityManager.miniSdkInt;
 
 /**
@@ -19,7 +20,6 @@ import static com.alanapi.ui.ActivityManager.miniSdkInt;
  */
 public abstract class Activity extends android.app.Activity {
   private ActivityPresenter activityPresenter;
-  protected boolean isWindowTranslucentStatus = true;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,16 @@ public abstract class Activity extends android.app.Activity {
 
     super.setContentView(getActivityContentViewLayoutResID());
 
-    if (isWindowTranslucentStatus && Build.VERSION.SDK_INT >= miniSdkInt && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    if (getWindowTranslucentStatus() && Build.VERSION.SDK_INT >= miniSdkInt && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
 
     initActivityView();
     initActivityData();
+  }
+
+  protected boolean getWindowTranslucentStatus() {
+    return isWindowTranslucentStatus;
   }
 
   @Override
