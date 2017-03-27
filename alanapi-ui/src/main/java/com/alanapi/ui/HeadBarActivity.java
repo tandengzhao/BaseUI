@@ -83,6 +83,11 @@ public abstract class HeadbarActivity extends Activity {
     showToolbarLeftBack();
     setContentView(getContentViewLayoutResID());
 
+    if(!getWindowTranslucentStatus()) {
+      rootActivityLayout.setFitsSystemWindows(false);
+      toolbar.setFitsSystemWindows(false);
+    }
+
     ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), R.color.ui_back));
 
     initView();
