@@ -8,8 +8,8 @@ android {
         applicationId "com.alanapi.ui.demo"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 110
-        versionName "1.1.0"
+        versionCode 111
+        versionName "1.1.1"
     }
     buildTypes {
         release {

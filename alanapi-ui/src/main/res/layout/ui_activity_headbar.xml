@@ -14,4 +14,8 @@
         android:layout_height="@dimen/ui_divider"
         android:background="@color/ui_divider"/>
 
+    <FrameLayout
+        android:id="@+id/ActivityHeadbar_rlContainerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

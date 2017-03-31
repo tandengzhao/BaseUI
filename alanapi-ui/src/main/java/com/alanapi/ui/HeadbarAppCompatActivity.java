@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   protected TextView tvToolbarRightOption;
   protected TextView tvToolbarRightOption1;
   protected TextView tvToolbarRightOption2;
+  protected FrameLayout containerLayout;
 
   @Override
   protected void initActivityData() {
@@ -44,6 +46,8 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     tvToolbarRightOption = getViewById(R.id.ViewHeadbar_tvHeadbarRightOption);
     tvToolbarRightOption1 = getViewById(R.id.ViewHeadbar_tvHeadbarRightOption1);
     tvToolbarRightOption2 = getViewById(R.id.ViewHeadbar_tvHeadbarRightOption2);
+    containerLayout = getViewById(R.id.ActivityHeadbar_rlContainerLayout);
+
     tvToolbarTitle.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -104,6 +108,17 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     }
   }
 
+  protected void addViewContainerLayout(View view) {
+    containerLayout.addView(view);
+  }
+
+  protected void addViewContainerLayout(View view, int gravity) {
+    addViewContainerLayout(view);
+    FrameLayout.LayoutParams fll = (FrameLayout.LayoutParams) view.getLayoutParams();
+    fll.gravity = gravity;
+    view.setLayoutParams(fll);
+  }
+
   @Override
   protected int getActivityContentViewLayoutResID() {
     return R.layout.ui_activity_headbar;
@@ -137,9 +152,21 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     rootActivityLayout.setBackgroundDrawable(drawable);
   }
 
+  public void setContainerLayoutBackgroundResource(int resId) {
+    containerLayout.setBackgroundResource(resId);
+  }
+
+  public void setContainerLayoutBackgroundColor(int color) {
+    containerLayout.setBackgroundColor(color);
+  }
+
+  public void setContainerLayoutBackgroundDrawable(Drawable drawable) {
+    containerLayout.setBackgroundDrawable(drawable);
+  }
+
   @Override
   public void setContentView(@LayoutRes int layoutResID) {
-    View.inflate(this, layoutResID, rootActivityLayout);
+    View.inflate(this, layoutResID, containerLayout);
   }
 
   @Override
@@ -149,7 +176,7 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
 
   @Override
   public void setContentView(View view, ViewGroup.LayoutParams params) {
-    rootActivityLayout.addView(view, params);
+    containerLayout.addView(view, params);
   }
 
   @Override

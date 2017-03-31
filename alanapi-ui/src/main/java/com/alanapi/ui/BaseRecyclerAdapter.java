@@ -162,14 +162,17 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
    */
   public void addSelectItem(int position) {
     String str = String.valueOf(position);
-    if(isSingleSelectItem) {
-      listSelectItemPosition.clear();
-    }
-    if(!listSelectItemPosition.contains(str)) {
+    if(listSelectItemPosition.contains(str)) {
+      //已经选中
+    } else {
+      if(isSingleSelectItem) {
+        listSelectItemPosition.clear();
+      }
       listSelectItemPosition.add(str);
-    }
-    if(onSelectItemChangeListener != null) {
-      onSelectItemChangeListener.onSelectItem(position, true);
+      if(onSelectItemChangeListener != null) {
+        notifyItemChanged(position);
+        onSelectItemChangeListener.onSelectItem(position, true);
+      }
     }
   }
 
@@ -177,8 +180,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
    * 选中所有
    */
   public void addSelectAllItem() {
+    listSelectItemPosition.clear();
     for(int i = 0; i < getItemCount(); i++) {
-      addSelectItem(i);
+      String str = String.valueOf(i);
+      listSelectItemPosition.add(str);
     }
   }
 
@@ -197,9 +202,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     String str = String.valueOf(position);
     if(listSelectItemPosition.contains(str)) {
       listSelectItemPosition.remove(str);
-    }
-    if(onSelectItemChangeListener != null) {
-      onSelectItemChangeListener.onSelectItem(position, false);
+      if(onSelectItemChangeListener != null) {
+        notifyItemChanged(position);
+        onSelectItemChangeListener.onSelectItem(position, false);
+      }
     }
   }
 
@@ -222,6 +228,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
   public List<T> getSelectItem() {
     List<T> listSelectData = new ArrayList<>();
     int[] positions = getSelectItemPosition();
+    if(positions == null) {
+      return listSelectData;
+    }
     for (int p: positions) {
       if(p > -1) {
         listSelectData.add(getItem(p));

@@ -1,8 +1,11 @@
 package com.alanapi.ui.demo;
 
 import android.os.Build;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.alanapi.ui.HeadbarActivity;
 
@@ -42,6 +45,17 @@ public class MainHeadbarActivity extends HeadbarActivity {
     showToolbarRightOption1();
     setToolbarRightOption2("右侧2");
     showToolbarRightOption2();
+
+    Button button = new Button(getContext());
+    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+    button.setLayoutParams(lp);
+    button.setText("登录按钮");
+    addViewContainerLayout(button);
+
+    Button button1 = new Button(getContext());
+    button1.setLayoutParams(lp);
+    button1.setText("登录按钮底部");
+    addViewContainerLayout(button1, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
   }
 
   protected void setStatusBar(final ViewGroup layoutTitle) {
