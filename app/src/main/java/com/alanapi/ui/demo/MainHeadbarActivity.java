@@ -1,7 +1,6 @@
 package com.alanapi.ui.demo;
 
 import android.os.Build;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,10 +18,10 @@ public class MainHeadbarActivity extends HeadbarActivity {
 
   @Override
   protected void initView() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-    }
-    LightStatusBarUtils.setLightStatusBar(this, true);
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//      getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//    }
+//    LightStatusBarUtils.setLightStatusBar(this, true);
 
 //    rootActivityLayout.setBackgroundResource(R.color.toolbar_background);
 //    rootActivityLayout.setBackgroundResource(R.drawable.bg_xn);
@@ -30,7 +29,7 @@ public class MainHeadbarActivity extends HeadbarActivity {
 //    rootHeadBarLayout.setFitsSystemWindows(false);
 //    setStatusBar(rootHeadBarLayout);
 //    setHeadBarBackgroundResource(R.drawable.head_title);
-    setStatusBarColorResource(R.color.blue, 0.1f);
+//    setStatusBarColorResource(R.color.blue, 0.1f);
 
 
 
@@ -46,16 +45,16 @@ public class MainHeadbarActivity extends HeadbarActivity {
     setToolbarRightOption2("右侧2");
     showToolbarRightOption2();
 
-    Button button = new Button(getContext());
-    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
-    button.setLayoutParams(lp);
-    button.setText("登录按钮");
-    addViewContainerLayout(button);
+//    Button button = new Button(getContext());
+//    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+//    button.setLayoutParams(lp);
+//    button.setText("登录按钮");
+    //addViewContainerLayout(button);
 
-    Button button1 = new Button(getContext());
-    button1.setLayoutParams(lp);
-    button1.setText("登录按钮底部");
-    addViewContainerLayout(button1, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
+//    Button button1 = new Button(getContext());
+//    button1.setLayoutParams(lp);
+//    button1.setText("登录按钮底部");
+    //addViewContainerLayout(button1, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
   }
 
   protected void setStatusBar(final ViewGroup layoutTitle) {

@@ -10,7 +10,6 @@ import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,7 +26,6 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
   protected TextView tvToolbarTitle;
   protected TextView tvToolbarLeftBack;
   protected TextView tvToolbarLeftOption;
-  protected FrameLayout containerLayout;
 
   @Override
   protected void initActivityData() {
@@ -41,7 +39,6 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
     tvToolbarTitle = getViewById(R.id.ViewToolbar_tvToolbarTitle);
     tvToolbarLeftBack = getViewById(R.id.ViewToolbar_tvToolbarLeftBack);
     tvToolbarLeftOption = getViewById(R.id.ViewToolbar_tvToolbarLeftOption);
-    containerLayout = getViewById(R.id.ActivityToolbarAppCompat_rlContainerLayout);
 
     tvToolbarTitle.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -95,17 +92,6 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
     }
   }
 
-  protected void addViewContainerLayout(View view) {
-    containerLayout.addView(view);
-  }
-
-  protected void addViewContainerLayout(View view, int gravity) {
-    addViewContainerLayout(view);
-    FrameLayout.LayoutParams fll = (FrameLayout.LayoutParams) view.getLayoutParams();
-    fll.gravity = gravity;
-    view.setLayoutParams(fll);
-  }
-
   @Override
   protected int getActivityContentViewLayoutResID() {
     return R.layout.ui_activity_toolbar_app_compat;
@@ -139,21 +125,9 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
     rootActivityLayout.setBackgroundDrawable(drawable);
   }
 
-  public void setContainerLayoutBackgroundResource(int resId) {
-    containerLayout.setBackgroundResource(resId);
-  }
-
-  public void setContainerLayoutBackgroundColor(int color) {
-    containerLayout.setBackgroundColor(color);
-  }
-
-  public void setContainerLayoutBackgroundDrawable(Drawable drawable) {
-    containerLayout.setBackgroundDrawable(drawable);
-  }
-
   @Override
   public void setContentView(@LayoutRes int layoutResID) {
-    View.inflate(this, layoutResID, containerLayout);
+    View.inflate(this, layoutResID, rootActivityLayout);
   }
 
   @Override
@@ -163,7 +137,7 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
 
   @Override
   public void setContentView(View view, ViewGroup.LayoutParams params) {
-    containerLayout.addView(view, params);
+    rootActivityLayout.addView(view, params);
   }
 
   @Override

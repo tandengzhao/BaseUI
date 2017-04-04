@@ -25,9 +25,12 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   protected Context context;
 
   public BaseAdapter() {
+    super();
+    cacheMap.clear();
   }
 
   public BaseAdapter(Context context) {
+    this();
     this.context = context;
   }
 

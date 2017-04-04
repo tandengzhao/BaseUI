@@ -21,6 +21,7 @@
         <activity android:name=".FragmentActivityDemo" />
         <activity android:name=".AppCompatActivityDemo" />
         <activity android:name=".MainHeadbarActivity" />
+        <activity android:name=".MainHeadbarListActivity" />
         <activity android:name=".MainHeadbarAppCompatActivity" />
         <activity android:name=".MainToolbarActivity" />
         <activity android:name=".LoginActivity"/>
