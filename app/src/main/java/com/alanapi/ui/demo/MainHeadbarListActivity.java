@@ -1,6 +1,9 @@
 package com.alanapi.ui.demo;
 
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.alanapi.ui.HeadbarActivity;
@@ -33,16 +36,16 @@ public class MainHeadbarListActivity extends HeadbarActivity {
     setToolbarRightOption("右侧0");
     showToolbarRightOption();
 
-//    Button button = new Button(getContext());
-//    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
-//    button.setLayoutParams(lp);
-//    button.setText("登录按钮");
-//    addViewContainerLayout(button);
+    Button button = new Button(getContext());
+    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+    button.setLayoutParams(lp);
+    button.setText("登录按钮");
+    addViewContainerLayout(button);
 
-//    Button button1 = new Button(getContext());
-//    button1.setLayoutParams(lp);
-//    button1.setText("登录按钮底部");
-//    addViewContainerLayout(button1, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
+    Button button1 = new Button(getContext());
+    button1.setLayoutParams(lp);
+    button1.setText("登录按钮底部");
+    addViewContainerLayout(button1, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL);
 
     listView = getViewById(R.id.listView);
   }

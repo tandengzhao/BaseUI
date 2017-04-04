@@ -5,9 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @version V1.0  16/7/1下午12:35
@@ -15,7 +13,6 @@ import java.util.Map;
  */
 public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
   protected List<T> listData = new ArrayList<>();
-  private Map<Integer, BaseViewHolder> cacheMap = new HashMap<>();
 
   private List<String> listSelectItemPosition = new ArrayList<>();
   private boolean isSingleSelectItem = false;//单选
@@ -26,7 +23,6 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
   public BaseAdapter() {
     super();
-    cacheMap.clear();
   }
 
   public BaseAdapter(Context context) {
@@ -58,18 +54,22 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
     BaseViewHolder viewHolder = null;
     int viewType = getItemViewType(position);
 
-    if(cacheMap.containsKey(viewType)) {
-      viewHolder = cacheMap.get(viewType);
-    }
-    if(null == viewHolder) {
+    if(convertView == null) {
       viewHolder = onCreateViewHolder(viewType, parent);
+
+    } else {
+      Object objHolder = convertView.getTag();
+      if(objHolder != null && objHolder instanceof BaseViewHolder && ((BaseViewHolder)objHolder).getViewHolderType() == viewType) {
+        viewHolder = (BaseViewHolder) objHolder;
+      } else {
+        viewHolder = onCreateViewHolder(viewType, parent);
+      }
     }
     if(null != viewHolder) {
-      if(!cacheMap.containsKey(viewType)) {
-        cacheMap.put(viewType, viewHolder);
-      }
       onBindViewHolder(viewType, position, viewHolder);
-      return viewHolder.itemView;
+      convertView = viewHolder.itemView;
+      viewHolder.setViewHolderType(viewType);
+      convertView.setTag(viewHolder);
     }
     return convertView;
   }

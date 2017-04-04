@@ -34,7 +34,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     if(this.context == null) {
       this.context = parent.getContext();
     }
-    return onCreateViewHolder(viewType, parent);
+    BaseViewHolder viewHolder = onCreateViewHolder(viewType, parent);
+    viewHolder.setViewHolderType(viewType);
+    return viewHolder;
   }
 
   @Override

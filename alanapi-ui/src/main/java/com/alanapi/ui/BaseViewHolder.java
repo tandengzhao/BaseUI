@@ -9,8 +9,17 @@ import android.view.View;
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public class BaseViewHolder extends RecyclerView.ViewHolder {
+  private int viewHolderType;
   public BaseViewHolder(View itemView) {
     super(itemView);
+  }
+
+  public int getViewHolderType() {
+    return viewHolderType;
+  }
+
+  public void setViewHolderType(int viewHolderType) {
+    this.viewHolderType = viewHolderType;
   }
 
   public <T extends View> T getViewById(@IdRes int resId) {

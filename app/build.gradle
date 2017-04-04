@@ -22,6 +22,5 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.alanapi.ui:alanapi-ui:1.0.8'
-    //compile project(':alanapi-ui')
+    compile project(':alanapi-ui')
 }
