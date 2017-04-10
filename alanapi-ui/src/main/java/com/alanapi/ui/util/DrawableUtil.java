@@ -50,6 +50,9 @@ public class DrawableUtil {
 
 
   public static Drawable tintDrawable(Drawable drawable, ColorStateList colors) {
+    if(drawable == null) {
+      return null;
+    }
     final Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
     DrawableCompat.setTintList(wrappedDrawable, colors);
     return wrappedDrawable;

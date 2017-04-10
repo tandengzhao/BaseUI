@@ -92,7 +92,16 @@ public abstract class HeadbarActivity extends Activity {
       toolbar.setFitsSystemWindows(false);
     }
 
-    ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), R.color.ui_back));
+    try {
+      ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), R.color.ui_back));
+    } catch (RuntimeException e) {
+      ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), R.color.ui_back));
+    } catch (Exception e) {
+      try {
+        ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), R.color.ui_back));
+      } catch (Exception ee) {
+      }
+    }
 
     initView();
   }
