@@ -54,6 +54,9 @@ public abstract class Activity extends android.app.Activity {
         if(activityPresenter.onKeyDown(keyCode, event)) {
           return true;
         }
+      } else {
+        //自定义劫持 back 事件
+        return true;
       }
     } else if (keyCode == KeyEvent.KEYCODE_MENU) {
       if(onKeyDownMenu()) {
