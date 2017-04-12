@@ -79,17 +79,6 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
       toolbar.setFitsSystemWindows(false);
     }
 
-    try {
-      ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), R.color.ui_back));
-    } catch (RuntimeException e) {
-      ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), R.color.ui_back));
-    } catch (Exception e) {
-      try {
-        ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), R.color.ui_back));
-      } catch (Exception ee) {
-      }
-    }
-
     initView();
   }
 
@@ -224,6 +213,19 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
 
   public void setToolbarLeftBackDrawableLeft(Drawable drawable) {
     ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, drawable);
+  }
+
+  public void setToolbarLeftBackDrawableColor(@ColorRes int resColor) {
+    try {
+      ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), resColor));
+    } catch (RuntimeException e) {
+      ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), resColor));
+    } catch (Exception e) {
+      try {
+        ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), resColor));
+      } catch (Exception ee) {
+      }
+    }
   }
 
   public void setToolbarLeftOption(@NonNull CharSequence title) {

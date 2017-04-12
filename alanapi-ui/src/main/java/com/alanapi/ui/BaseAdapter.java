@@ -99,6 +99,11 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
     notifyDataSetChanged();
   }
 
+  public void addData(int index, T t) {
+    listData.add(index, t);
+    notifyDataSetChanged();
+  }
+
   public void addData(List<T> list) {
     if(list != null && !list.isEmpty()) {
       this.listData.addAll(list);
@@ -111,11 +116,6 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
       this.listData.addAll(index, list);
       notifyDataSetChanged();
     }
-  }
-
-  public void addData(int index, T t) {
-    listData.add(index, t);
-    notifyDataSetChanged();
   }
 
   public void removeData(T t) {

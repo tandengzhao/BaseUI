@@ -99,6 +99,11 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     notifyDataSetChanged();
   }
 
+  public void addData(int index, T t) {
+    listData.add(index, t);
+    notifyDataSetChanged();
+  }
+
   public void addData(List<T> list) {
     if(list != null && !list.isEmpty()) {
       this.listData.addAll(list);
@@ -111,11 +116,6 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
       this.listData.addAll(index, list);
       notifyDataSetChanged();
     }
-  }
-
-  public void addData(int index, T t) {
-    listData.add(index, t);
-    notifyDataSetChanged();
   }
 
   public void removeData(T t) {
@@ -295,7 +295,6 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
   public void setSingleSelectItem(boolean singleSelectItem) {
     this.isSingleSelectItem = singleSelectItem;
   }
-
 
   public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
     this.onItemClickListener = onItemClickListener;
