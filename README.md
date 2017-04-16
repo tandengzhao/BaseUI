@@ -15,7 +15,9 @@
 
 
 #使用
-compile 'com.alanapi.ui:alanapi-ui:1.1.2'
+compile 'com.alanapi.ui:alanapi-ui:1.1.3'
+
+
 
 
 #Proguard

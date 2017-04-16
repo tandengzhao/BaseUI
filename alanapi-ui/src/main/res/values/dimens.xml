@@ -7,6 +7,8 @@
     <dimen name="ui_toolbarPadding">5dp</dimen>
     <dimen name="ui_toolbarPaddingLeft">@dimen/ui_toolbarPadding</dimen>
     <dimen name="ui_toolbarPaddingRight">@dimen/ui_toolbarPadding</dimen>
+    <dimen name="ui_toolbarTextTitleMarginLeft">45dp</dimen>
+    <dimen name="ui_toolbarTextTitleMarginRight">45dp</dimen>
 
     <dimen name="ui_toolbarText">14sp</dimen>
     <dimen name="ui_toolbarTextTitle">18sp</dimen>

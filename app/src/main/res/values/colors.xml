@@ -5,12 +5,14 @@
     <color name="colorAccent">#FF4081</color>
 
 
-    <color name="ui_toolbarBackground">#FFFFFA</color>
-    <color name="ui_toolbarText">#303030</color>
+    <color name="ui_toolbarBackground">#303030</color>
+    <color name="ui_toolbarBackgroundDark">#000000</color>
+    <color name="ui_toolbarText">#FFFFFF</color>
 
 
 
 
+    <color name="white">#FFFFFF</color>
     <color name="gray">#D2D2D2</color>
     <color name="black">#303030</color>
     <color name="red">#FF0000</color>
@@ -18,7 +20,7 @@
     <color name="yellow">#FFFF00</color>
     <color name="blue">#0000FF</color>
 
-    <color name="ui_divider">#FF4081</color>
+    <color name="ui_divider">#D3D3D3</color>
     <color name="ui_colorAccent">#FF4081</color>
 
     <color name="ui_toolbarDivider">#FFFFFF</color>

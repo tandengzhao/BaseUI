@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="ui_Toolbar">
     </style>
-    <style name="ui_ToolbarActivity" parent="ui_Toolbar" >
+
+    <style name="ui_ToolbarActivity" parent="ui_Toolbar">
+        <item name="android:background">@color/ui_activityBackground</item>
     </style>
-    <style name="ui_ToolbarLayout" parent="ui_Toolbar" >
+
+    <style name="ui_ToolbarLayout" parent="ui_Toolbar">
         <item name="android:background">@color/ui_toolbarBackground</item>
+    </style>
+
+    <style name="ui_ToolbarLeftBack">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:minWidth">25dp</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawableLeft">@drawable/ui_back</item>
+        <item name="android:drawablePadding">1dp</item>
+        <item name="android:textColor">@color/ui_back</item>
+        <item name="android:textSize">@dimen/ui_toolbarTextLeftBack</item>
+    </style>
+    <style name="ui_ToolbarTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:minWidth">50dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/ui_toolbarTextTitle</item>
+        <item name="android:textSize">@dimen/ui_toolbarTextTitle</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLength">22</item>
+        <item name="android:singleLine">true</item>
     </style>
 </resources>

@@ -31,15 +31,25 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   protected TextView tvToolbarRightOption2;
   protected FrameLayout containerLayout;
 
+  protected LinearLayout llToolbarCenterLayout;
+
   @Override
   protected void initActivityData() {
-    initData();
+    super.initActivityData();
   }
 
   @Override
   protected void initActivityView() {
+    super.initActivityView();
     rootActivityLayout = getViewById(R.id.ActivityHeadbar_llRootLayout);
     toolbar = getViewById(R.id.ViewHeadbar_rootLayout);
+
+    if(!getWindowTranslucentStatus()) {
+      rootActivityLayout.setFitsSystemWindows(false);
+      toolbar.setFitsSystemWindows(false);
+    }
+
+    llToolbarCenterLayout = getViewById(R.id.ViewHeadbar_llCenterLayout);
     tvToolbarTitle = getViewById(R.id.ViewHeadbar_tvHeadbarTitle);
     tvToolbarLeftBack = getViewById(R.id.ViewHeadbar_tvHeadbarLeftBack);
     tvToolbarLeftOption = getViewById(R.id.ViewHeadbar_tvHeadbarLeftOption);
@@ -85,14 +95,11 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
       }
     });
     showToolbarLeftBack();
-    setContentView(getContentViewLayoutResID());
 
-    if(!getWindowTranslucentStatus()) {
-      rootActivityLayout.setFitsSystemWindows(false);
-      toolbar.setFitsSystemWindows(false);
+    int layoutId = getContentViewLayoutResID();
+    if(layoutId > 0) {
+      setContentView(getContentViewLayoutResID());
     }
-
-    initView();
   }
 
   /**
@@ -103,6 +110,13 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     if(toolbar != null) {
       toolbar.removeAllViews();
       toolbar.addView(view);
+    }
+  }
+
+  public void replaceToolbarCenterLayout(View view) {
+    if(llToolbarCenterLayout != null) {
+      llToolbarCenterLayout.removeAllViews();
+      llToolbarCenterLayout.addView(view);
     }
   }
 
@@ -165,6 +179,8 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   @Override
   public void setContentView(@LayoutRes int layoutResID) {
     View.inflate(this, layoutResID, containerLayout);
+    initView();
+    initData();
   }
 
   @Override
@@ -175,6 +191,8 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   @Override
   public void setContentView(View view, ViewGroup.LayoutParams params) {
     containerLayout.addView(view, params);
+    initView();
+    initData();
   }
 
   @Override
@@ -436,16 +454,20 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   /**
    * 初始化数据
    */
-  protected abstract void initData();
+  protected void initData() {
+  }
 
   /**
    * 初始化View控件
    */
-  protected abstract void initView();
+  protected void initView() {
+  }
 
   /**
    * 获取ContentViewLayoutResID
    * @return
    */
-  protected abstract int getContentViewLayoutResID();
+  protected int getContentViewLayoutResID() {
+    return -1;
+  }
 }

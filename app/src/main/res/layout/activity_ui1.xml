@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FF0000"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/activity111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/activity112"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/activity113"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/activity114"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activity"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/activityHeader111"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通 HeadbarActivity111"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/activityHeader112"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通 HeadbarActivity Search"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/activityHeader113"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通 HeadbarActivity WebView"
+        android:textAllCaps="false"/>
+</LinearLayout>

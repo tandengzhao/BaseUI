@@ -24,17 +24,8 @@
 
     <TextView
         android:id="@+id/ViewToolbar_tvToolbarLeftBack"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_gravity="left|center_vertical"
+        style="@style/ui_ToolbarLeftBack"
         android:layout_marginLeft="@dimen/ui_toolbarPaddingLeft"
-        android:drawableLeft="@drawable/ui_back"
-        android:drawablePadding="1dp"
-        android:gravity="center_vertical"
-        android:minWidth="30dp"
-        android:paddingRight="5dp"
-        android:textColor="@color/ui_back"
-        android:textSize="@dimen/ui_toolbarTextLeftBack"
         tools:text=""/>
 
     <TextView
@@ -43,28 +34,28 @@
         android:layout_height="45dp"
         android:layout_gravity="left|center_vertical"
         android:gravity="center"
-        android:minWidth="30dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
+        android:minWidth="20dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
         android:textColor="@color/ui_toolbarTextLeftOption"
         android:textSize="@dimen/ui_toolbarTextLeftOption"
         android:visibility="gone"
         tools:text="左侧"
         tools:visibility="visible"/>
 
-    <TextView
-        android:id="@+id/ViewToolbar_tvToolbarTitle"
+    <LinearLayout
+        android:id="@+id/ViewToolbar_llCenterLayout"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:maxLength="14"
-        android:minWidth="50dp"
-        android:singleLine="true"
-        android:textColor="@color/ui_toolbarTextTitle"
-        android:textSize="@dimen/ui_toolbarTextTitle"
-        android:textStyle="bold"
-        tools:text="标题一二三四五六七八九十一二三四五六七八"/>
+        android:layout_marginLeft="@dimen/ui_toolbarTextTitleMarginLeft"
+        android:layout_marginRight="@dimen/ui_toolbarTextTitleMarginRight"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ViewToolbar_tvToolbarTitle"
+            style="@style/ui_ToolbarTitle"
+            tools:text="标题"/>
+    </LinearLayout>
+
 </android.support.v7.widget.Toolbar>

@@ -14,10 +14,10 @@ import static android.content.Context.ACTIVITY_SERVICE;
  * @author:OliverTan(www.tandunzhao.cn)
  */
 public final class ActivityManager {
+  private static final String TAG = "ActivityManager";
   public static boolean debug = true;
   private volatile static Stack<Activity> activityStack = new Stack<Activity>();
   private volatile static ActivityManager instance;
-  private final String TAG = "ActivityManager";
   public static int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;
   public static boolean isWindowTranslucentStatus = true;
 

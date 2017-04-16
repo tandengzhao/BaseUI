@@ -2,6 +2,9 @@
 <manifest package="com.alanapi.ui.demo"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,15 +18,38 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityDemo" />
-        <activity android:name=".ActivityDemoFull" />
-        <activity android:name=".ActivityDemoFull2" />
-        <activity android:name=".FragmentActivityDemo" />
-        <activity android:name=".AppCompatActivityDemo" />
-        <activity android:name=".MainHeadbarActivity" />
-        <activity android:name=".MainHeadbarListActivity" />
-        <activity android:name=".MainHeadbarAppCompatActivity" />
-        <activity android:name=".MainToolbarActivity" />
+
+        <activity android:name=".activity.UIActivity"/>
+        <activity android:name=".activity.UIActivity111"/>
+        <activity android:name=".activity.UIActivity112"/>
+        <activity android:name=".activity.UIActivity113"/>
+        <activity android:name=".activity.UIActivity114"/>
+        <activity android:name=".activity.UIAppCompatActivity"/>
+        <activity android:name=".activity.UIAppCompatActivity211"/>
+        <activity android:name=".activity.UIAppCompatActivity212"/>
+        <activity android:name=".activity.UIAppCompatActivity213"/>
+        <activity android:name=".activity.UIFragmentActivity"/>
+        <activity android:name=".activity.UIFragmentActivity311"/>
+        <activity android:name=".activity.UIFragmentActivity312"/>
+        <activity android:name=".activity.UIFragmentActivity313"/>
+
+        <activity android:name=".activity.UIHeadbarActivity"/>
+        <activity android:name=".activity.UIHeadbarActivity111"/>
+        <activity
+            android:name=".activity.UIHeadbarActivity112"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
+        <activity android:name=".activity.UIHeadbarActivity113"/>
+
+
+        <activity android:name=".ActivityDemo"/>
+        <activity android:name=".ActivityDemoFull"/>
+        <activity android:name=".ActivityDemoFull2"/>
+        <activity android:name=".FragmentActivityDemo"/>
+        <activity android:name=".AppCompatActivityDemo"/>
+        <activity android:name=".MainHeadbarActivity"/>
+        <activity android:name=".MainHeadbarListActivity"/>
+        <activity android:name=".MainHeadbarAppCompatActivity"/>
+        <activity android:name=".MainToolbarActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".ActivityDrawerLayoutDemo"/>
         <activity android:name=".ActivitySlidingPaneLayoutDemo"/>

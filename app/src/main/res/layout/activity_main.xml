@@ -19,36 +19,91 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <Button
+            android:id="@+id/activity1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/activity2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/appCompatActivity"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/activity3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragmentActivity"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/activityHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="普通 HeadbarActivity"
+            android:textAllCaps="false"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <Button
             android:id="@+id/activityList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="普通ActivityLis列表"/>
+
         <Button
             android:id="@+id/activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="普通Activity"/>
+
         <Button
             android:id="@+id/activityFull"
             android:layout_width="wrap_content"
+            android:textAllCaps="false"
             android:layout_height="wrap_content"
             android:text="普通 全透明 Activity"/>
+
         <Button
             android:id="@+id/activityFull2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="普通 全透明 Activity"/>
 
         <Button
             android:id="@+id/fragmentActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="普通FragmentActivity"/>
 
         <Button
             android:id="@+id/appActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="普通AppCompatActivity"/>
 
         <Button
@@ -61,6 +116,7 @@
             android:id="@+id/slidingPaneActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="普通SlidingPaneLayoutActivity"/>
 
         <Button
@@ -73,11 +129,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onMainHeadbar"
+            android:textAllCaps="false"
             android:text="MainHeadbarActivity"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:onClick="onMainHeadbarAppCompat"
             android:text="MainHeadbarAppCompatActivity"/>
 
@@ -85,6 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onLogin"
+            android:textAllCaps="false"
             android:text="登录"/>
 
         <LinearLayout
@@ -104,18 +163,14 @@
                 android:id="@+id/tvDrawableBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:background="#00ff00"
                 android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
+                android:background="#00ff00"
                 android:drawableLeft="@drawable/ui_back_app"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
                 android:minHeight="48dp"
                 android:minWidth="48dp"
                 android:text="返回"/>
         </LinearLayout>
-
-
     </LinearLayout>
-
-
 </ScrollView>

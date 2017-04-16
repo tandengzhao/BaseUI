@@ -5,12 +5,31 @@ import android.widget.TextView;
 
 import com.alanapi.ui.AppCompatActivity;
 import com.alanapi.ui.UIHelper;
+import com.alanapi.ui.demo.activity.UIActivity;
+import com.alanapi.ui.demo.activity.UIAppCompatActivity;
+import com.alanapi.ui.demo.activity.UIFragmentActivity;
+import com.alanapi.ui.demo.activity.UIHeadbarActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
   @Override
   public void onClick(View view) {
     switch (view.getId()) {
+      case R.id.activity1:
+        UIHelper.showActivity(this, UIActivity.class);
+        break;
+      case R.id.activity2:
+        UIHelper.showActivity(this, UIAppCompatActivity.class);
+        break;
+      case R.id.activity3:
+        UIHelper.showActivity(this, UIFragmentActivity.class);
+        break;
+      case R.id.activityHeader:
+        UIHelper.showActivity(this, UIHeadbarActivity.class);
+        break;
+
+
+
       case R.id.activityList:
         UIHelper.showActivity(this, MainHeadbarListActivity.class);
         break;
@@ -45,6 +64,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
   @Override
   protected void initActivityView() {
+    getViewById(R.id.activity1).setOnClickListener(this);
+    getViewById(R.id.activity2).setOnClickListener(this);
+    getViewById(R.id.activity3).setOnClickListener(this);
+    getViewById(R.id.activityHeader).setOnClickListener(this);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     getViewById(R.id.activityList).setOnClickListener(this);
     getViewById(R.id.activity).setOnClickListener(this);
     getViewById(R.id.activityFull).setOnClickListener(this);

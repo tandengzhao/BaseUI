@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">BaseUI</string>
     <string name="action_settings">设置</string>
+
+
+    <string name="desc">默认是带 沉浸式 效果，需要在 根布局文件加上 \n fitsSystemWindows="true" \n属性，或者在 头部布局文件 加上, 如果不加的话，默认是在顶部显示，statusBar </string>
+
+
+
+    <string name="activity">普通 Activity</string>
+    <string name="appCompatActivity">普通 AppCompatActivity</string>
+    <string name="fragmentActivity">普通 FragmentActivity</string>
 </resources>

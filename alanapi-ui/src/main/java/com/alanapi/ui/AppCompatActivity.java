@@ -5,8 +5,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.alanapi.ui.util.StatusBarUtil;
@@ -23,16 +25,40 @@ public abstract class AppCompatActivity extends android.support.v7.app.AppCompat
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
     activityPresenter = new ActivityPresenter(this);
     activityPresenter.onCreate(savedInstanceState);
-
-    super.setContentView(getActivityContentViewLayoutResID());
 
     if (getWindowTranslucentStatus() && Build.VERSION.SDK_INT >= miniSdkInt && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
 
+    super.onCreate(savedInstanceState);
+
+    int layoutId = getActivityContentViewLayoutResID();
+    if(layoutId > 1) {
+      super.setContentView(layoutId);
+      initActivityView();
+      initActivityData();
+    }
+  }
+
+  @Override
+  public void setContentView(@LayoutRes int layoutResID) {
+    super.setContentView(layoutResID);
+    initActivityView();
+    initActivityData();
+  }
+
+  @Override
+  public void setContentView(View view) {
+    super.setContentView(view);
+    initActivityView();
+    initActivityData();
+  }
+
+  @Override
+  public void setContentView(View view, ViewGroup.LayoutParams params) {
+    super.setContentView(view, params);
     initActivityView();
     initActivityData();
   }
@@ -50,7 +76,7 @@ public abstract class AppCompatActivity extends android.support.v7.app.AppCompat
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-      if(onKeyDownBack()) {
+      if(!onKeyDownBack()) {
         if(activityPresenter.onKeyDown(keyCode, event)) {
           return true;
         }
@@ -71,7 +97,7 @@ public abstract class AppCompatActivity extends android.support.v7.app.AppCompat
   }
 
   public boolean onKeyDownBack() {
-    return true;
+    return false;
   }
 
   public boolean onKeyDownMenu() {
@@ -148,16 +174,20 @@ public abstract class AppCompatActivity extends android.support.v7.app.AppCompat
   /**
    * 初始化数据
    */
-  protected abstract void initActivityData();
+  protected void initActivityData() {
+  }
 
   /**
    * 初始化View控件
    */
-  protected abstract void initActivityView();
+  protected void initActivityView() {
+  }
 
   /**
    * 获取ContentViewLayoutResID
    * @return
    */
-  protected abstract int getActivityContentViewLayoutResID();
+  protected int getActivityContentViewLayoutResID() {
+    return -1;
+  }
 }
