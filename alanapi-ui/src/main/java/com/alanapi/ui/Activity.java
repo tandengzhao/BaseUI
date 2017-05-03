@@ -70,14 +70,16 @@ public abstract class Activity extends android.app.Activity {
   @Override
   public void finish() {
     super.finish();
-    activityPresenter.finish();
+    if(activityPresenter != null) {
+      activityPresenter.finish();
+    }
   }
 
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
       if(!onKeyDownBack()) {
-        if(activityPresenter.onKeyDown(keyCode, event)) {
+        if(activityPresenter != null && activityPresenter.onKeyDown(keyCode, event)) {
           return true;
         }
       } else {
@@ -111,12 +113,16 @@ public abstract class Activity extends android.app.Activity {
   @Override
   public void onBackPressed() {
     super.onBackPressed();
-    activityPresenter.onBackPressed();
+    if(activityPresenter != null) {
+      activityPresenter.onBackPressed();
+    }
   }
 
   @Override
   protected void onDestroy() {
-    activityPresenter.onDestroy();
+    if(activityPresenter != null) {
+      activityPresenter.onDestroy();
+    }
     activityPresenter = null;
     super.onDestroy();
   }
@@ -156,15 +162,21 @@ public abstract class Activity extends android.app.Activity {
   }
 
   protected void showToastMessage(String msg) {
-    activityPresenter.showToastMessage(msg);
+    if(activityPresenter != null) {
+      activityPresenter.showToastMessage(msg);
+    }
   }
 
   protected void showToastMessage(View view) {
-    activityPresenter.showToastMessage(view);
+    if(activityPresenter != null) {
+      activityPresenter.showToastMessage(view);
+    }
   }
 
   public void finishActivity() {
-    activityPresenter.finishActivity();
+    if(activityPresenter != null) {
+      activityPresenter.finishActivity();
+    }
   }
 
   protected <T extends View> T getViewById(@IdRes int id) {

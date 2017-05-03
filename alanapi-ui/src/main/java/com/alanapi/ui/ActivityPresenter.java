@@ -55,6 +55,10 @@ public final class ActivityPresenter {
   }
 
   protected void onDestroy() {
+    if(toast != null) {
+      toast.cancel();
+      toast = null;
+    }
     finishActivity();
     activity = null;
   }
