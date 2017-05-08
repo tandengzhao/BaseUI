@@ -15,7 +15,7 @@ import static android.content.Context.ACTIVITY_SERVICE;
  */
 public final class ActivityManager {
   private static final String TAG = "ActivityManager";
-  public static boolean debug = true;
+  public static boolean debug = false;
   private volatile static Stack<Activity> activityStack = new Stack<Activity>();
   private volatile static ActivityManager instance;
   public static int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;

@@ -3,9 +3,11 @@ package com.alanapi.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * @version V1.0  16/7/1上午11:37
@@ -31,7 +33,17 @@ public class UIHelper {
    * @return
    */
   public static Serializable getActivityData(Activity activity) {
-    return activity.getIntent().getSerializableExtra(_KEY_OBJECT_DATA);
+    return getActivityData(activity, _KEY_OBJECT_DATA);
+  }
+
+  /**
+   * 获取默认数据 intent put object data
+   * @param activity
+   * @param key
+   * @return
+   */
+  public static Serializable getActivityData(Activity activity, String key) {
+    return activity.getIntent().getSerializableExtra(key);
   }
 
   /**
@@ -40,7 +52,7 @@ public class UIHelper {
    * @param clazz show activity class
    */
   public static void showActivity(Context context, Class<?> clazz) {
-    showActivity(context, clazz, null);
+    showActivityTitle(context, clazz, null);
   }
 
   /**
@@ -49,7 +61,7 @@ public class UIHelper {
    * @param clazz show activity class
    * @param activityTitle show activity title name
    */
-  public static void showActivity(Context context, Class<?> clazz, String activityTitle) {
+  public static void showActivityTitle(Context context, Class<?> clazz, String activityTitle) {
     showActivity(context, clazz, activityTitle, null);
   }
 
@@ -77,6 +89,24 @@ public class UIHelper {
     }
     if(data != null) {
       intent.putExtra(_KEY_OBJECT_DATA, data);
+    }
+    startActivity(context, intent);
+  }
+
+  /**
+   * 显示Activity
+   * @param context android.content.Context
+   * @param clazz show activity class
+   * @param data show activity to data
+   */
+  public static void showActivity(Context context, Class<?> clazz, Map<String, Serializable> data) {
+    Intent intent = getIntent(context, clazz);
+    if(data != null && !data.isEmpty()) {
+      for (Map.Entry<String, Serializable> entry : data.entrySet()) {
+        if(!TextUtils.isEmpty(entry.getKey())) {
+          intent.putExtra(entry.getKey(), entry.getValue());
+        }
+      }
     }
     startActivity(context, intent);
   }
