@@ -2,10 +2,10 @@
 
 #编译环境
 1. compileSdkVersion 25
-2. buildToolsVersion '25.0.2'
+2. buildToolsVersion '25.0.3'
 3. minSdkVersion 14
 4. targetSdkVersion 25
-5. gradle:2.2.3
+5. gradle:2.3.2
 
 #依赖库
 1. compile 'com.android.support:support-v4:25.3.1'
