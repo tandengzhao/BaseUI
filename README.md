@@ -15,7 +15,7 @@
 
 
 #使用
-compile 'com.alanapi.ui:alanapi-ui:1.1.3'
+compile 'com.alanapi.ui:alanapi-ui:1.1.4'
 
 
 
