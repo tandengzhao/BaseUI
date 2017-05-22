@@ -18,7 +18,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     if (mFragmentRootView == null) {
       mFragmentRootView = getFragmentView(inflater, container, savedInstanceState);
       if(mFragmentRootView == null) {
-        throw new IllegalStateException(this.getClass().getSimpleName() + "必须getFragmentLayoutResId() 或者 getFragmentLayoutView() ，且获取View不能为空");
+        throw new IllegalStateException(this.getClass().getSimpleName() + "必须实现 getFragmentLayoutResId() 或者 getFragmentLayoutView() ，且获取View不能为空");
       }
       onInitFragment(savedInstanceState);
     } else {

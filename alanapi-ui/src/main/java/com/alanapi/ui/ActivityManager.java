@@ -16,10 +16,10 @@ import static android.content.Context.ACTIVITY_SERVICE;
 public final class ActivityManager {
   private static final String TAG = "ActivityManager";
   public static boolean debug = false;
+  public volatile static int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;
+  public volatile static boolean isWindowTranslucentStatus = true;
   private volatile static Stack<Activity> activityStack = new Stack<Activity>();
   private volatile static ActivityManager instance;
-  public static int miniSdkInt = Build.VERSION_CODES.LOLLIPOP;
-  public static boolean isWindowTranslucentStatus = true;
 
   private ActivityManager() {
   }
@@ -184,7 +184,7 @@ public final class ActivityManager {
         activity = null;
       }
     } catch (Exception e) {
-      Log.d(TAG, "finishActivity : " + e.getMessage());
+      Log.e(TAG, "finishActivity : " + e.getMessage());
     }
   }
 

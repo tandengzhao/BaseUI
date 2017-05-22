@@ -40,6 +40,8 @@
             android:windowSoftInputMode="adjustPan|adjustResize"/>
         <activity android:name=".activity.UIHeadbarActivity113"/>
 
+        <activity android:name=".sys.SystemBarActivity" />
+
 
         <activity android:name=".ActivityDemo"/>
         <activity android:name=".ActivityDemoFull"/>

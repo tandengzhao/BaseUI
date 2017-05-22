@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.annotation.FloatRange;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.util.Log;
@@ -30,7 +32,7 @@ public class StatusBarUtil {
    * @param resColor 状态栏颜色值
    */
   public static void setColorResource(Activity activity, @ColorRes int resColor) {
-    setColorResource(activity, resColor, -1);
+    setColorResource(activity, resColor, 1);
   }
 
   /**
@@ -38,7 +40,7 @@ public class StatusBarUtil {
    * @param activity 需要设置的 activity
    * @param resColor 状态栏颜色值
    */
-  public static void setColorResource(Activity activity, @ColorRes int resColor, float alpha) {
+  public static void setColorResource(Activity activity, @ColorRes int resColor, @FloatRange(from = 0, to = 1)float alpha) {
     setColor(activity, activity.getResources().getColor(resColor), alpha);
   }
 
@@ -47,7 +49,7 @@ public class StatusBarUtil {
    * @param activity 需要设置的 activity
    * @param color 状态栏颜色值
    */
-  public static void setColor(Activity activity, int color) {
+  public static void setColor(Activity activity, @ColorInt int color) {
     if(Build.VERSION.SDK_INT < miniSdkInt || Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
       return;
     }
@@ -72,7 +74,7 @@ public class StatusBarUtil {
    * @param color 状态栏颜色值
    * @param alpha 状态栏透明度
    */
-  public static void setColor(Activity activity, int color, float alpha) {
+  public static void setColor(Activity activity, @ColorInt int color, @FloatRange(from = 0, to = 1)float alpha) {
     if(Build.VERSION.SDK_INT < miniSdkInt || Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
       return;
     }
@@ -130,7 +132,7 @@ public class StatusBarUtil {
    * @param resColor 状态栏颜色值
    */
   public static void setDrawerLayoutColorResource(Activity activity, DrawerLayout drawerLayout, @ColorRes int resColor) {
-    setDrawerLayoutColorResource(activity, drawerLayout, resColor, -1);
+    setDrawerLayoutColorResource(activity, drawerLayout, resColor, 1);
   }
 
   /**
@@ -139,7 +141,7 @@ public class StatusBarUtil {
    * @param resColor 状态栏颜色值
    * @param alpha 状态栏透明度
    */
-  public static void setDrawerLayoutColorResource(Activity activity, DrawerLayout drawerLayout, @ColorRes int resColor, float alpha) {
+  public static void setDrawerLayoutColorResource(Activity activity, DrawerLayout drawerLayout, @ColorRes int resColor, @FloatRange(from = 0, to = 1)float alpha) {
     setDrawerLayoutColor(activity, drawerLayout, activity.getResources().getColor(resColor), alpha);
   }
 
@@ -148,8 +150,8 @@ public class StatusBarUtil {
    * @param activity 需要设置的 activity
    * @param color 状态栏颜色值
    */
-  public static void setDrawerLayoutColor(Activity activity, DrawerLayout drawerLayout, int color) {
-    setDrawerLayoutColor(activity, drawerLayout, color, -1);
+  public static void setDrawerLayoutColor(Activity activity, DrawerLayout drawerLayout, @ColorInt int color) {
+    setDrawerLayoutColor(activity, drawerLayout, color, 1);
   }
 
   /**
@@ -158,7 +160,7 @@ public class StatusBarUtil {
    * @param color 状态栏颜色值
    * @param alpha 状态栏透明度
    */
-  public static void setDrawerLayoutColor(Activity activity, DrawerLayout drawerLayout, int color, float alpha) {
+  public static void setDrawerLayoutColor(Activity activity, DrawerLayout drawerLayout, @ColorInt int color, @FloatRange(from = 0, to = 1)float alpha) {
     if(Build.VERSION.SDK_INT < miniSdkInt || Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
       return;
     }
@@ -216,7 +218,7 @@ public class StatusBarUtil {
    * @param resColor 状态栏颜色值
    */
   public static void setSlidingPaneLayoutColorResource(Activity activity, SlidingPaneLayout slidingPaneLayout, @ColorRes int resColor) {
-    setSlidingPaneLayoutColorResource(activity, slidingPaneLayout, resColor, -1);
+    setSlidingPaneLayoutColorResource(activity, slidingPaneLayout, resColor, 1);
   }
 
   /**
@@ -225,7 +227,7 @@ public class StatusBarUtil {
    * @param resColor 状态栏颜色值
    * @param alpha 状态栏透明度
    */
-  public static void setSlidingPaneLayoutColorResource(Activity activity, SlidingPaneLayout slidingPaneLayout, @ColorRes int resColor, float alpha) {
+  public static void setSlidingPaneLayoutColorResource(Activity activity, SlidingPaneLayout slidingPaneLayout, @ColorRes int resColor, @FloatRange(from = 0, to = 1)float alpha) {
     setSlidingPaneLayoutColor(activity, slidingPaneLayout, activity.getResources().getColor(resColor), alpha);
   }
 
@@ -234,8 +236,8 @@ public class StatusBarUtil {
    * @param activity 需要设置的 activity
    * @param color 状态栏颜色值
    */
-  public static void setSlidingPaneLayoutColor(Activity activity, SlidingPaneLayout slidingPaneLayout, int color) {
-    setSlidingPaneLayoutColor(activity, slidingPaneLayout, color, -1);
+  public static void setSlidingPaneLayoutColor(Activity activity, SlidingPaneLayout slidingPaneLayout, @ColorInt int color) {
+    setSlidingPaneLayoutColor(activity, slidingPaneLayout, color, 1);
   }
 
   /**
@@ -244,7 +246,7 @@ public class StatusBarUtil {
    * @param color 状态栏颜色值
    * @param alpha 状态栏透明度
    */
-  public static void setSlidingPaneLayoutColor(Activity activity, SlidingPaneLayout slidingPaneLayout, int color, float alpha) {
+  public static void setSlidingPaneLayoutColor(Activity activity, SlidingPaneLayout slidingPaneLayout, @ColorInt int color, @FloatRange(from = 0, to = 1)float alpha) {
     if(Build.VERSION.SDK_INT < miniSdkInt || Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
       return;
     }
@@ -323,10 +325,10 @@ public class StatusBarUtil {
   public static int getStatusBarHeight(Context context) {
     // 获得状态栏高度
     int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-    if(resourceId > 0) {
-      return context.getResources().getDimensionPixelSize(resourceId);
-    }
     try {
+      if(resourceId > 0) {
+        return context.getResources().getDimensionPixelSize(resourceId);
+      }
       Class<?> c = Class.forName("com.android.internal.R$dimen");
       Object obj = c.newInstance();
       Field field = c.getField("status_bar_height");

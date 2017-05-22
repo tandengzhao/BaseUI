@@ -9,6 +9,7 @@ import com.alanapi.ui.demo.activity.UIActivity;
 import com.alanapi.ui.demo.activity.UIAppCompatActivity;
 import com.alanapi.ui.demo.activity.UIFragmentActivity;
 import com.alanapi.ui.demo.activity.UIHeadbarActivity;
+import com.alanapi.ui.demo.sys.SystemBarActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         break;
       case R.id.activityHeader:
         UIHelper.showActivity(this, UIHeadbarActivity.class);
+        break;
+      case R.id.activitySystem:
+        UIHelper.showActivity(this, SystemBarActivity.class);
         break;
 
 
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     getViewById(R.id.activity2).setOnClickListener(this);
     getViewById(R.id.activity3).setOnClickListener(this);
     getViewById(R.id.activityHeader).setOnClickListener(this);
+    getViewById(R.id.activitySystem).setOnClickListener(this);
 
 
 

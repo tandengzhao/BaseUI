@@ -3,7 +3,9 @@ package com.alanapi.ui;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.annotation.FloatRange;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.view.KeyEvent;
@@ -140,16 +142,16 @@ public abstract class Activity extends android.app.Activity {
    * @param color
    * @param alpha 0~1的值，0完全透明，1完全不透明
    */
-  protected void setStatusBarColor(int color, float alpha) {
+  protected void setStatusBarColor(@ColorInt int color, @FloatRange(from = 0, to = 1)float alpha) {
     StatusBarUtil.setColor(this, color, alpha);
   }
 
-  protected void setStatusBarColor(int color) {
-    setStatusBarColor(color, -1);
+  protected void setStatusBarColor(@ColorInt int color) {
+    setStatusBarColor(color, 1);
   }
 
   protected void setStatusBarColorResource(@ColorRes int resColor) {
-    setStatusBarColorResource(resColor, -1);
+    setStatusBarColorResource(resColor, 1);
   }
 
   /**
@@ -157,7 +159,7 @@ public abstract class Activity extends android.app.Activity {
    * @param resColor
    * @param alpha 0~1的值，0完全透明，1完全不透明
    */
-  protected void setStatusBarColorResource(@ColorRes int resColor, float alpha) {
+  protected void setStatusBarColorResource(@ColorRes int resColor, @FloatRange(from = 0, to = 1)float alpha) {
     setStatusBarColor(getResources().getColor(resColor), alpha);
   }
 

@@ -42,6 +42,12 @@
             android:layout_height="wrap_content"
             android:text="普通 HeadbarActivity"
             android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/activitySystem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="系统 Activity"
+            android:textAllCaps="false"/>
 
 
 

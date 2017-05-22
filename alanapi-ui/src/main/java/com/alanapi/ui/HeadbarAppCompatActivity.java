@@ -2,6 +2,7 @@ package com.alanapi.ui;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
@@ -144,7 +145,7 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     toolbar.setBackgroundResource(resId);
   }
 
-  public void setToolBarBackgroundColor(int color) {
+  public void setToolBarBackgroundColor(@ColorInt int color) {
     toolbar.setBackgroundColor(color);
   }
 
@@ -156,7 +157,7 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     rootActivityLayout.setBackgroundResource(resId);
   }
 
-  public void setActivityBackgroundColor(int color) {
+  public void setActivityBackgroundColor(@ColorInt int color) {
     rootActivityLayout.setBackgroundColor(color);
   }
 
@@ -168,7 +169,7 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     containerLayout.setBackgroundResource(resId);
   }
 
-  public void setContainerLayoutBackgroundColor(int color) {
+  public void setContainerLayoutBackgroundColor(@ColorInt int color) {
     containerLayout.setBackgroundColor(color);
   }
 
@@ -249,8 +250,6 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   public void setToolbarLeftBackDrawableColor(@ColorRes int resColor) {
     try {
       ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, DrawableUtil.getVectorDrawable(this, R.drawable.ui_back), resColor));
-    } catch (RuntimeException e) {
-      ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), resColor));
     } catch (Exception e) {
       try {
         ViewUtil.setTextViewCompoundDrawableLeft(tvToolbarLeftBack, DrawableUtil.tintDrawable(this, getResources().getDrawable(R.drawable.ui_back_other), resColor));
