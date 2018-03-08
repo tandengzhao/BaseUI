@@ -26,6 +26,16 @@ import static com.alanapi.ui.ActivityManager.miniSdkInt;
 public class StatusBarUtil {
   private static final String TAG = "StatusBarUtil";
 
+
+  /**
+   * 设置状态栏字体图标颜色(只限全屏非activity情况)
+   * @param activity
+   * @param lightStatusBar 是否深色 true为深色 false 为白色
+   */
+  public static void setLightStatusBar(Activity activity, boolean lightStatusBar) {
+    StatusBarLightCompat.setLightStatusBar(activity.getWindow(), lightStatusBar);
+  }
+
   /**
    * 设置状态栏颜色
    * @param activity 需要设置的 activity

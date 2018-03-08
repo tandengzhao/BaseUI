@@ -1,23 +1,45 @@
 #BaseUI
 
 #编译环境
-1. compileSdkVersion 25
-2. buildToolsVersion '25.0.3'
+1. compileSdkVersion 27
+2. buildToolsVersion '27.0.3'
 3. minSdkVersion 14
-4. targetSdkVersion 25
-5. gradle:2.3.2
+4. targetSdkVersion 27
+5. gradle:3.0.1
 
 #依赖库
-1. compile 'com.android.support:support-v4:25.3.1'
-2. compile 'com.android.support:appcompat-v7:25.3.1'
-3. compile 'com.android.support:design:25.3.1'
+1. compile 'com.android.support:support-v4:27.1.0'
+2. compile 'com.android.support:appcompat-v7:27.1.0'
+3. compile 'com.android.support:design:27.1.0'
 
 
 
 #使用
-compile 'com.alanapi.ui:alanapi-ui:1.1.4'
+compile 'com.alanapi.ui:alanapi-ui:1.1.5'
 
 
 
 
 #Proguard
+-dontwarn android.support.v4.**
+-dontwarn android.support.v7.**
+-dontwarn android.os.**
+
+-keepattributes *Annotation*
+
+-keep class android.support.v4.** { *; }
+-keep class android.support.v7.** { *; }
+
+-keep interface android.support.v4.app.** { *; }
+-keep public class * extends android.support.v4.**
+-keep public class * extends android.app.Fragment
+-keep public class * extends android.support.v4.app.Fragment
+-keep public class * extends android.support.v4.app.FragmentActivity
+-keep public class * extends android.support.v7.app.AppCompatActivity
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.support.v4.widget

@@ -113,38 +113,44 @@ public final class ScreenUtil {
    */
   public static int getStatusBarHeight(Context context) {
     int result = 0;
-    int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-    if (resourceId > 0) {
-      result = context.getResources().getDimensionPixelSize(resourceId);
+    try {
+      int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+      if (resourceId > 0) {
+        result = context.getResources().getDimensionPixelSize(resourceId);
+      }
+    } catch (Exception e) {
     }
     return result;
   }
 
   public static int getNavigationBarHeight(Context context) {
     int result = 0;
-    int resourceId = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
-    if (resourceId > 0) {
-      result = context.getResources().getDimensionPixelSize(resourceId);
+    try {
+      int resourceId = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+      if (resourceId > 0) {
+        result = context.getResources().getDimensionPixelSize(resourceId);
+      }
+    } catch (Exception e) {
     }
     return result;
   }
 
   public static int getSystemBarHeight(Context context) {
     int result = 0;
-    int resourceId = context.getResources().getIdentifier("system_bar_height", "dimen", "android");
-    if (resourceId > 0) {
-      result = context.getResources().getDimensionPixelSize(resourceId);
+    try {
+      int resourceId = context.getResources().getIdentifier("system_bar_height", "dimen", "android");
+      if (resourceId > 0) {
+        result = context.getResources().getDimensionPixelSize(resourceId);
+      }
+    } catch (Exception e) {
     }
     return result;
   }
-
 
   public static WindowManager getWindowManager(Context context) {
     WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
     return wm;
   }
-
-
 
   public static EScreenDensity getScreenDensity(Context context) {
     EScreenDensity eScreenDensity;
