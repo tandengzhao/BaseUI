@@ -4,8 +4,11 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
@@ -175,5 +178,37 @@ public class ViewUtil {
    */
   public static void setTextViewCompoundDrawableBottom(@NonNull TextView textView, @DrawableRes int drawableRes) {
     setTextViewCompoundDrawableBottom(textView, textView.getResources().getDrawable(drawableRes));
+  }
+
+  /**
+   * 获取一个View
+   * @param context
+   * @param resId
+   * @return
+   */
+  public static View getView(Context context, @LayoutRes int resId) {
+    return getView(context, resId, null, false);
+  }
+
+  /**
+   * 获取一个View
+   * @param parent
+   * @param resId
+   * @return
+   */
+  public static View getView(ViewGroup parent, @LayoutRes int resId) {
+     return getView(parent.getContext(), resId, parent, false);
+  }
+
+  /**
+   * 获取一个View
+   * @param context
+   * @param resId
+   * @param parent
+   * @param attachToRoot
+   * @return
+   */
+  public static View getView(Context context, @LayoutRes int resId, ViewGroup parent, boolean attachToRoot) {
+    return LayoutInflater.from(context).inflate(resId, parent, attachToRoot);
   }
 }

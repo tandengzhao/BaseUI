@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,9 +31,17 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   protected TextView tvToolbarRightOption;
   protected TextView tvToolbarRightOption1;
   protected TextView tvToolbarRightOption2;
+
+  protected EditText etSearch;
+
+
   protected FrameLayout containerLayout;
 
+
+
   protected LinearLayout llToolbarCenterLayout;
+
+
 
   @Override
   protected void initActivityData() {
@@ -58,6 +67,8 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
     tvToolbarRightOption1 = getViewById(R.id.ViewHeadbar_tvHeadbarRightOption1);
     tvToolbarRightOption2 = getViewById(R.id.ViewHeadbar_tvHeadbarRightOption2);
     containerLayout = getViewById(R.id.ActivityHeadbar_flContainerLayout);
+
+    etSearch = getViewById(R.id.ViewHeadbar_etSearch);
 
     tvToolbarTitle.setOnClickListener(new View.OnClickListener() {
       @Override
