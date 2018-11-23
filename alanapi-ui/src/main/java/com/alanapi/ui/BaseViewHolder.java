@@ -10,6 +10,7 @@ import android.view.View;
  */
 public class BaseViewHolder extends RecyclerView.ViewHolder {
   private int viewHolderType;
+
   public BaseViewHolder(View itemView) {
     super(itemView);
   }

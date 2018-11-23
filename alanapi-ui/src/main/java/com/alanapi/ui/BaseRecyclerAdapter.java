@@ -1,9 +1,12 @@
 package com.alanapi.ui;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.alanapi.ui.util.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     if(this.context == null) {
       this.context = parent.getContext();
     }
+
     BaseViewHolder viewHolder = onCreateViewHolder(viewType, parent);
     viewHolder.setViewHolderType(viewType);
     return viewHolder;
@@ -80,6 +84,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
 
   public abstract BaseViewHolder onCreateViewHolder(int viewType, ViewGroup parent);
   public abstract void onBindViewHolder(int viewType, int position, BaseViewHolder viewHolder);
+
+  public View getViewHolderView(ViewGroup parent, @LayoutRes int layoutResId) {
+    return ViewUtil.getView(context, layoutResId, parent, false);
+  }
 
   public void setListData(List<T> listData) {
     this.listSelectItemPosition.clear();

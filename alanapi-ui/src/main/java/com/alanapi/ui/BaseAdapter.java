@@ -1,8 +1,11 @@
 package com.alanapi.ui;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.alanapi.ui.util.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +79,10 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 
   public abstract BaseViewHolder onCreateViewHolder(int viewType, ViewGroup parent);
   public abstract void onBindViewHolder(int viewType, int position, BaseViewHolder viewHolder);
+
+  public View getViewHolderView(ViewGroup parent, @LayoutRes int layoutResId) {
+    return ViewUtil.getView(context, layoutResId, parent, false);
+  }
 
   public int getItemViewType(int position) {
     return 0;
