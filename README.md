@@ -19,6 +19,12 @@ compile 'com.alanapi.ui:alanapi-ui:1.1.5'
 
 
 
+1，继承
+2，实现
+    getActivityLayoutResID() 方法获取Content View
+    initView()   初始化View
+    initData()   初始化数据
+
 
 #Proguard
 -dontwarn android.support.v4.**

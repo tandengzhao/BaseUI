@@ -1,5 +1,6 @@
 package com.alanapi.ui.demo.activity;
 
+import android.util.Log;
 import android.view.View;
 
 import com.alanapi.ui.ToolbarAppCompatActivity;
@@ -30,11 +31,13 @@ public class UIFragmentActivity extends ToolbarAppCompatActivity implements View
   @Override
   protected void initData() {
     super.initData();
+    Log.e("Debug", "initData()");
   }
 
   @Override
   protected void initView() {
     super.initView();
+    Log.e("Debug", "initView()");
 
     getViewById(R.id.activity311).setOnClickListener(this);
     getViewById(R.id.activity312).setOnClickListener(this);
@@ -44,7 +47,7 @@ public class UIFragmentActivity extends ToolbarAppCompatActivity implements View
   }
 
   @Override
-  protected int getContentViewLayoutResID() {
+  protected int getActivityLayoutResID() {
     return R.layout.activity_ui3;
   }
 }

@@ -1,5 +1,6 @@
 package com.alanapi.ui.demo.activity;
 
+import android.util.Log;
 import android.view.View;
 
 import com.alanapi.ui.HeadbarAppCompatActivity;
@@ -30,11 +31,13 @@ public class UIAppCompatActivity extends HeadbarAppCompatActivity implements Vie
   @Override
   protected void initData() {
     super.initData();
+    Log.e("Debug", "initData()");
   }
 
   @Override
   protected void initView() {
     super.initView();
+    Log.e("Debug", "initView()");
     getViewById(R.id.activity211).setOnClickListener(this);
     getViewById(R.id.activity212).setOnClickListener(this);
     getViewById(R.id.activity213).setOnClickListener(this);
@@ -43,7 +46,7 @@ public class UIAppCompatActivity extends HeadbarAppCompatActivity implements Vie
   }
 
   @Override
-  protected int getContentViewLayoutResID() {
+  protected int getActivityLayoutResID() {
     return R.layout.activity_ui2;
   }
 }

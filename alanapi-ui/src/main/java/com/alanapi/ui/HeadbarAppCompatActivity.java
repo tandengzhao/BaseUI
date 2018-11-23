@@ -45,12 +45,10 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
 
   @Override
   protected void initActivityData() {
-    super.initActivityData();
   }
 
   @Override
   protected void initActivityView() {
-    super.initActivityView();
     rootActivityLayout = getViewById(R.id.ActivityHeadbar_llRootLayout);
     toolbar = getViewById(R.id.ViewHeadbar_rootLayout);
 
@@ -110,7 +108,7 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
 
     int layoutId = getContentViewLayoutResID();
     if(layoutId > 0) {
-      setContentView(getContentViewLayoutResID());
+      setContentView(layoutId);
     }
   }
 
@@ -464,12 +462,14 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
   /**
    * 初始化数据
    */
+  @Override
   protected void initData() {
   }
 
   /**
    * 初始化View控件
    */
+  @Override
   protected void initView() {
   }
 
@@ -478,6 +478,14 @@ public abstract class HeadbarAppCompatActivity extends AppCompatActivity {
    * @return
    */
   protected int getContentViewLayoutResID() {
+    return getActivityLayoutResID();
+  }
+
+  /**
+   * 获取ContentViewLayoutResID
+   * @return
+   */
+  protected int getActivityLayoutResID() {
     return -1;
   }
 }

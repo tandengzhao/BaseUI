@@ -34,7 +34,6 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
 
   @Override
   protected void initActivityData() {
-    super.initActivityData();
   }
 
   @Override
@@ -85,7 +84,7 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
 
     int layoutId = getContentViewLayoutResID();
     if(layoutId > 0) {
-      setContentView(getContentViewLayoutResID());
+      setContentView(layoutId);
     }
   }
 
@@ -321,12 +320,14 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
   /**
    * 初始化数据
    */
+  @Override
   protected void initData() {
   }
 
   /**
    * 初始化View控件
    */
+  @Override
   protected void initView() {
   }
 
@@ -335,6 +336,14 @@ public abstract class ToolbarAppCompatActivity extends AppCompatActivity {
    * @return
    */
   protected int getContentViewLayoutResID() {
+    return getActivityLayoutResID();
+  }
+
+  /**
+   * 获取ContentViewLayoutResID
+   * @return
+   */
+  protected int getActivityLayoutResID() {
     return -1;
   }
 }

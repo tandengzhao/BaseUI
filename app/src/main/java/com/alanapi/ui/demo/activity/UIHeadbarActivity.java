@@ -1,5 +1,6 @@
 package com.alanapi.ui.demo.activity;
 
+import android.util.Log;
 import android.view.View;
 
 import com.alanapi.ui.HeadbarActivity;
@@ -23,18 +24,20 @@ public class UIHeadbarActivity extends HeadbarActivity implements View.OnClickLi
   @Override
   protected void initData() {
     super.initData();
+    Log.e("Debug", "initData()");
   }
 
   @Override
   protected void initView() {
     super.initView();
+    Log.e("Debug", "initView()");
     setTitle("普通HeadbarActivity");
 
     getViewById(R.id.activityHeader111).setOnClickListener(this);
   }
 
   @Override
-  protected int getContentViewLayoutResID() {
+  protected int getActivityLayoutResID() {
     return R.layout.activity_ui_header;
   }
 }

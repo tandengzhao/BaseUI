@@ -189,12 +189,14 @@ public abstract class Activity extends android.app.Activity {
    * 初始化数据
    */
   protected void initActivityData() {
+    this.initData();
   }
 
   /**
    * 初始化View控件
    */
   protected void initActivityView() {
+    this.initView();
   }
 
   /**
@@ -202,6 +204,27 @@ public abstract class Activity extends android.app.Activity {
    * @return
    */
   protected int getActivityContentViewLayoutResID() {
+    return getActivityLayoutResID();
+  }
+
+
+  /**
+   * 获取ContentViewLayoutResID
+   * @return
+   */
+  protected int getActivityLayoutResID() {
     return -1;
+  }
+
+  /**
+   * 初始化数据
+   */
+  protected void initData() {
+  }
+
+  /**
+   * 初始化View控件
+   */
+  protected void initView() {
   }
 }

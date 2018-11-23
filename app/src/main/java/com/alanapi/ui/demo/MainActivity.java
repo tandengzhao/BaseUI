@@ -62,12 +62,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   }
 
   @Override
-  protected void initActivityData() {
+  protected void initData() {
 
   }
 
   @Override
-  protected void initActivityView() {
+  protected void initView() {
     getViewById(R.id.activity1).setOnClickListener(this);
     getViewById(R.id.activity2).setOnClickListener(this);
     getViewById(R.id.activity3).setOnClickListener(this);
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   }
 
   @Override
-  protected int getActivityContentViewLayoutResID() {
+  protected int getActivityLayoutResID() {
     return R.layout.activity_main;
   }
 

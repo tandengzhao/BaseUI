@@ -1,6 +1,7 @@
 package com.alanapi.ui.demo.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.alanapi.ui.Activity;
 import com.alanapi.ui.demo.R;
@@ -18,12 +19,12 @@ public class UIActivity114 extends Activity {
   }
 
   @Override
-  protected void initActivityData() {
-    super.initActivityData();
+  protected void initView() {
+    Log.e("Debug", "initView()");
   }
 
   @Override
-  protected void initActivityView() {
-    super.initActivityView();
+  protected void initData() {
+    Log.e("Debug", "initData()");
   }
 }
